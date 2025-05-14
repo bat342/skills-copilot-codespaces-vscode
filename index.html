@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emir Lastik - Lastik Alışveriş Sitesi</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="main-header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-contact">
+                    <span><i class="fas fa-envelope"></i> satis@emirlastik.com</span>
+                    <span><i class="fas fa-phone"></i> 0 850 285 63 85</span>
+                </div>
+                <div class="header-actions">
+                    <a href="giris.html" style="display:inline-flex;align-items:center;gap:6px;"><i class="fas fa-user-circle" style="font-size:1.1em;"></i> Giriş Yap</a> |
+                    <a href="uye-ol.html">Üye Girişi / Yeni Üyelik</a> |
+                    <a href="kargo-takip.html">Kargom Nerede?</a> |
+                    <a href="sepet.html">Sepet <span class="cart-count">0</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container" style="display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+                <div class="logo" style="flex-shrink: 0; margin-right: 32px;">
+                    <a href="index.html"><img src="https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/8df02ac1b8e75c991945f0ac5e25d1a8" alt="Emir Lastik Logo" style="height: 70px;"></a>
+                </div>
+                <nav class="main-nav" style="flex: 1;">
+                    <ul style="display: flex; align-items: center; gap: 12px;">
+                        <li class="dropdown">
+                            <a href="#">LASTİKLER <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu" style="min-width:340px;">
+                                <li><a href="lastikler.html?tip=binek">Binek</a></li>
+                                <li><a href="lastikler.html?tip=hafif-ticari">Hafif Ticari</a></li>
+                                <li><a href="lastikler.html?tip=suv-4x4">SUV/4x4</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="tartismalar.html">Tartışmalar</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- SLIDER (REKLAM PANELİ) EN ÜSTTE -->
+    <section class="main-slider-row">
+        <div class="main-slider">
+            <div class="slider-container">
+                <div class="slider-slide active">
+                    <img src="https://i.bstr.es/espaciofurgo/2024/04/toyota-hilux-gr-sport_5-1110x577.jpg" alt="Toyota Hilux GR Sport">
+                    <div class="slider-caption">
+                        <h2>Her Yolda Güvenli Sürüş</h2>
+                    </div>
+                </div>
+                <div class="slider-slide">
+                    <img src="https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/0a6fb3a2f819b086541b9d81fc610c7f" alt="Luxury Car">
+                    <div class="slider-caption">
+                        <h2>Yeni Nesil Perfotmans</h2>
+                    </div>
+                </div>
+                <div class="slider-slide">
+                    <img src="https://arabam-blog.mncdn.com/wp-content/uploads/2020/07/land-rover.jpg" alt="Land Rover">
+                    <div class="slider-caption">
+                        <h2>Zoru Kolay Yapar</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- AVANTAJLAR -->
+    <section class="advantages">
+        <div class="container">
+            <h2 class="section-title">AVANTAJLARINIZ</h2>
+            <div class="advantage-cards">
+                <div class="card"><i class="fas fa-credit-card"></i><h3>Kredi Kartına Taksit</h3><p>Detaylar için...</p></div>
+                <div class="card"><i class="fas fa-truck"></i><h3>Ücretsiz Kargo</h3><p>Seçmiş olduğunuz Montaj noktasına kargo ücretsizdir</p></div>
+                <div class="card"><i class="fas fa-tools"></i><h3>Ücretsiz Montaj</h3><p>Montaj servislerimizde sökme, takma ve balans hizmetleri ücretsizdir</p></div>
+                <div class="card"><i class="fas fa-shield-alt"></i><h3>+2 Yıl Garanti</h3><p>Lastiklerimiz 2 yıl boyunca garantimiz altında</p></div>
+                <div class="card"><i class="fas fa-undo"></i><h3>Kolay İade</h3><p>14 gün içinde iade imkanı, detaylar için...</p></div>
+                <div class="card"><i class="fas fa-smile"></i><h3>Müşteri Memnuniyeti</h3><p>%100 memnuniyet...</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARKA BAZLI ÜRÜNLER -->
+    <section class="brand-featured-products">
+        <div class="container">
+            <!-- PETLAS -->
+            <div class="brand-block petlas-block">
+                <div class="brand-header"><img src="images/petlas-logo.png" alt="Petlas"><span>ÖNE ÇIKAN ÜRÜNLER</span></div>
+                <div class="product-slider">
+                    <div class="product-slides">
+                        <div class="product-page active">
+                            <div class="product-card">
+                                <img src="https://www.akolastik.com/idea/cd/93/myassets/products/602/snowmaster2.jpg?revision=1724851055" alt="Petlas Snowmaster 2">
+                                <h3>225/45 RF18 TL 95V REINF. SNOWMASTER 2 SPORT P-RFT PETLAS</h3>
+                                <div class="price-info">
+                                    <span class="old-price">9.334,25 TL</span>
+                                    <span class="current-price">6.068,40 TL</span>
+                                </div>
+                                <a href="urun-detay.html?id=petlas1" class="details-btn">Detaylar</a>
+                            </div>
+                            <div class="product-card">
+                                <img src="https://www.akolastik.com/idea/cd/93/myassets/products/602/snowmaster2.jpg?revision=1724851055" alt="Petlas Snowmaster 2">
+                                <h3>235/45 R19 TL 99V REINF. SNOWMASTER 2 SPORT PETLAS</h3>
+                                <div class="price-info">
+                                    <span class="old-price">11.350,25 TL</span>
+                                    <span class="current-price">7.378,80 TL</span>
+                                </div>
+                                <a href="urun-detay.html?id=petlas2" class="details-btn">Detaylar</a>
+                            </div>
+                        </div>
+                        <div class="product-page">
+                            <div class="product-card">
+                                <img src="https://www.akolastik.com/idea/cd/93/myassets/products/602/snowmaster2.jpg?revision=1724851055" alt="Petlas Snowmaster 2">
+                                <h3>255/40 R19 TL 100V REINF. SNOWMASTER 2 SPORT PETLAS</h3>
+                                <div class="price-info">
+                                    <span class="old-price">10.895,45 TL</span>
+                                    <span class="current-price">7.082,40 TL</span>
+                                </div>
+                                <a href="urun-detay.html?id=petlas3" class="details-btn">Detaylar</a>
+                            </div>
+                            <div class="product-card">
+                                <img src="https://www.akolastik.com/idea/cd/93/myassets/products/602/snowmaster2.jpg?revision=1724851055" alt="Petlas Snowmaster 2">
+                                <h3>255/40 R18 TL 99V REINF. SNOWMASTER 2 SPORT PETLAS</h3>
+                                <div class="price-info">
+                                    <span class="old-price">7.890,65 TL</span>
+                                    <span class="current-price">5.130,00 TL</span>
+                                </div>
+                                <a href="urun-detay.html?id=petlas4" class="details-btn">Detaylar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="slider-arrow prev">&#10094;</button>
+                    <button class="slider-arrow next">&#10095;</button>
+                    <div class="slider-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+            </div>
+            <!-- DUNLOP -->
+            <div class="brand-block dunlop-block">
+                <div class="brand-header"><img src="images/dunlop-logo.png" alt="Dunlop"><span>ÖNE ÇIKAN ÜRÜNLER</span></div>
+                <div class="product-slider">
+                    <div class="product-slides">
+                        <div class="product-page active">
+                            <div class="product-card">
+                                <img src="https://www.akolastik.com/idea/cd/93/myassets/products/470/sp-winter-sport500-dunlop-lastik.jpg?revision=1697143329" alt="Dunlop SP Winter Sport 500">
+                                <h3>205/55 R16 TL 91H SP WINTER SPORT 500 DUNLOP</h3>
+                                <div class="price-info">
+                                    <span class="old-price">7.604,29 TL</span>
+                                    <span class="current-price">5.323,20 TL</span>
+                                </div>
+                                <a href="urun-detay.html?id=dunlopsport" class="details-btn">Detaylar</a>
+                            </div>
+                            <div class="product-card">
+                                <img src="https://www.akolastik.com/idea/cd/93/myassets/products/470/sp-winter-sport500-dunlop-lastik.jpg?revision=1697143329" alt="Dunlop SP Winter Sport 500">
+                                <h3>195/55 R15 TL 85H SP WINTER SPORT 500 DUNLOP</h3>
+                                <div class="price-info">
+                                    <span class="old-price">6.395,89 TL</span>
+                                    <span class="current-price">4.477,20 TL</span>
+                                </div>
+                                <a href="urun-detay.html?id=dunlopwinter" class="details-btn">Detaylar</a>
+                            </div>
+                        </div>
+                        <div class="product-page">
+                            <div class="product-card">
+                                <img src="https://www.akolastik.com/idea/cd/93/myassets/products/470/sp-winter-sport500-dunlop-lastik.jpg?revision=1697143329" alt="Dunlop SP Winter Sport 500">
+                                <h3>225/65 R17 TL 102H SP WINTER SPORT 500 DUNLOP</h3>
+                                <div class="price-info">
+                                    <span class="old-price">8.080,29 TL</span>
+                                    <span class="current-price">5.656,80 TL</span>
+                                </div>
+                                <a href="urun-detay.html?id=dunlop500" class="details-btn">Detaylar</a>
+                            </div>
+                            <div class="product-card">
+                                <img src="https://www.akolastik.com/idea/cd/93/myassets/products/470/sp-winter-sport500-dunlop-lastik.jpg?revision=1697143329" alt="Dunlop SP Winter Sport 500">
+                                <h3>225/60 R17 TL 99H SP WINTER SPORT 500 DUNLOP</h3>
+                                <div class="price-info">
+                                    <span class="old-price">8.854,29 TL</span>
+                                    <span class="current-price">6.198,00 TL</span>
+                                </div>
+                                <a href="urun-detay.html?id=dunlop500b" class="details-btn">Detaylar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="slider-arrow prev">&#10094;</button>
+                    <button class="slider-arrow next">&#10095;</button>
+                    <div class="slider-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+            </div>
+            <!-- FALKEN -->
+            <div class="brand-block falken-block">
+                <div class="brand-header"><img src="images/falken-logo.png" alt="Falken"><span>ÖNE ÇIKAN ÜRÜNLER</span></div>
+                <div class="product-slider">
+                    <div class="product-slides">
+                        <div class="product-page active">
+                            <div class="product-card">
+                                <img src="https://www.akolastik.com/idea/cd/93/myassets/products/370/hs02.jpg?revision=1697143329" alt="Falken Eurowinter HS02">
+                                <h3>205/55 R16 TL 91H EUROWINTER HS02 PRO FALKEN</h3>
+                                <div class="price-info">
+                                    <span class="old-price">7.604,29 TL</span>
+                                    <span class="current-price">5.323,20 TL</span>
+                                </div>
+                                <a href="urun-detay.html?id=falkenfk510" class="details-btn">Detaylar</a>
+                            </div>
+                            <div class="product-card">
+                                <img src="https://www.akolastik.com/idea/cd/93/myassets/products/370/hs02.jpg?revision=1697143329" alt="Falken Eurowinter HS02">
+                                <h3>195/55 R15 TL 85H EUROWINTER HS02 PRO FALKEN</h3>
+                                <div class="price-info">
+                                    <span class="old-price">6.395,89 TL</span>
+                                    <span class="current-price">4.477,20 TL</span>
+                                </div>
+                                <a href="urun-detay.html?id=falkenhs01" class="details-btn">Detaylar</a>
+                            </div>
+                        </div>
+                        <div class="product-page">
+                            <div class="product-card">
+                                <img src="https://www.akolastik.com/idea/cd/93/myassets/products/370/hs02.jpg?revision=1697143329" alt="Falken Eurowinter HS02">
+                                <h3>185/65 R15 TL 88H EUROWINTER HS02 PRO FALKEN</h3>
+                                <div class="price-info">
+                                    <span class="old-price">5.395,89 TL</span>
+                                    <span class="current-price">3.777,60 TL</span>
+                                </div>
+                                <a href="urun-detay.html?id=falkenhs02" class="details-btn">Detaylar</a>
+                            </div>
+                            <div class="product-card">
+                                <img src="https://www.akolastik.com/idea/cd/93/myassets/products/370/hs02.jpg?revision=1697143329" alt="Falken Eurowinter HS02">
+                                <h3>175/65 R14 TL 82H EUROWINTER HS02 PRO FALKEN</h3>
+                                <div class="price-info">
+                                    <span class="old-price">4.395,89 TL</span>
+                                    <span class="current-price">3.077,20 TL</span>
+                                </div>
+                                <a href="urun-detay.html?id=falkenhs02b" class="details-btn">Detaylar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="slider-arrow prev">&#10094;</button>
+                    <button class="slider-arrow next">&#10095;</button>
+                    <div class="slider-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BANKA LOGOLARI -->
+    <section class="bank-logos" style="background: linear-gradient(to right, #f8f9fa, #ffffff, #f8f9fa); padding: 40px 0; margin-top: 40px; position: relative; overflow: hidden;">
+        <div class="container">
+            <h3 style="text-align: center; color: #01519A; margin-bottom: 30px; font-size: 1.4rem; font-weight: 600;">Ödeme Seçeneklerimiz</h3>
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <img src="https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/03248567e9ba65baa9f7451c2e9491d2" alt="Banka Görseli" style="height: 42px; transition: all 0.3s ease;">
+            </div>
+            <p style="text-align: center; margin-top: 25px; color: #666; font-size: 0.9rem;">Tüm ödemeleriniz 256-bit SSL sertifikası ile güvence altındadır</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-logo"><img src="images/logo.png" alt="Emir Lastik Logo"></div>
+                <div class="footer-columns">
+                    <div class="footer-col">
+                        <h4>ÜYELİK</h4>
+                        <ul>
+                            <li><a href="uye-ol.html">Yeni Üyelik</a></li>
+                            <li><a href="giris.html">Üye Girişi</a></li>
+                            <li><a href="hesabim.html">Hesabım</a></li>
+                            <li><a href="sifremi-unuttum.html">Şifremi Unuttum</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>BİLGİ</h4>
+                        <ul>
+                            <li><a href="yuk-endeksi.html">Yük Endeksi & Hız Sembolü</a></li>
+                            <li><a href="iptal-ve-iade.html">İade Şartları</a></li>
+                            <li><a href="garanti.html">Garanti Koşulları</a></li>
+                            <li><a href="kvkk.html">KVKK Aydınlatma Metni</a></li>
+                            <li><a href="gizlilik.html">Gizlilik ve Güvenlik</a></li>
+                            <li><a href="sss.html">S.S.S</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>ALIŞVERİŞ</h4>
+                        <ul>
+                            <li><a href="nasil-calisir.html">Nasıl Çalışır</a></li>
+                            <li><a href="sepet.html">Alışveriş Sepetim</a></li>
+                            <li><a href="montaj-noktalari.html">Montaj Noktaları</a></li>
+                            <li><a href="kargo-takip.html">Kargom Nerede?</a></li>
+                            <li><a href="banka-kampanyalari.html">Banka Kampanyaları</a></li>
+                            <li><a href="iade-formu.html">İade Formu</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>KURUMSAL</h4>
+                        <ul>
+                            <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                            <li><a href="iletisim.html">İletişim</a></li>
+                            <li><a href="tartismalar.html">Tartışmalar</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>İLETİŞİM</h4>
+                        <p>Emir Lastik A.Ş<br>Yeni Mah. 54200 Erenler, SAKARYA<br>0 850 285 63 85<br>satis@emirlastik.com</p>
+                    </div>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>E-POSTA LİSTESİ</h4>
+                    <form><input type="email" placeholder="E-posta adresiniz..."><button>KAYDOL</button></form>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom" style="text-align: center; padding: 20px 0;">
+                <p>Copyright © 2015 Her Hakkı Saklıdır. Tüm Bilgiler 256 Bit SSL sertifikası ile korunmaktadır.</p>
+                <p>Lastikler 2024 ve 2025 yılı üretim olmak üzere fabrika stok durumuna göre sevk edilmektedir.</p>
+                <p>Ücretsiz montaj, Emir Lastik için sunulan bir kampanyadır!</p>
+            </div>
+            <!-- Büyük iletişim butonu -->
+            <div style="text-align:center; margin:32px 0 0 0;">
+                <a href="iletisim.html" class="footer-contact-btn" style="font-size:1.1rem; padding:14px 36px; margin:0 auto; display:inline-block;">İletişime Geç</a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+    <style>
+    .footer-contact-btn {
+        display: inline-block;
+        background: #01519A;
+        color: #fff !important;
+        text-decoration: none;
+        padding: 14px 36px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-top: 18px;
+        box-shadow: 0 2px 8px rgba(1,81,154,0.08);
+        transition: background 0.2s, color 0.2s;
+        border: none;
+    }
+    .footer-contact-btn:hover {
+        background: #e31e24;
+        color: #fff !important;
+    }
+    </style>
+</body>
+</html> 

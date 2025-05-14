@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>SUV/4x4 Lastikler - Emir Lastik</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background: #f7f7f7; margin: 0; font-family: 'Segoe UI', Arial, sans-serif; }
+        .header-simple, .simple-footer { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        .header-simple .container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; }
+        .header-simple .logo img { height: 54px; }
+        .header-simple nav ul { display: flex; gap: 24px; list-style: none; padding: 0; margin: 0; align-items: center; }
+        .header-simple nav ul li a { color: #01519A; font-weight: 600; text-decoration: none; padding: 8px 16px; border-radius: 4px; transition: background 0.2s, color 0.2s; }
+        .header-simple nav ul li a:hover { background: #01519A; color: #fff; }
+        .header-simple nav ul li a i { margin-right: 5px; }
+        .breadcrumb { max-width: 1200px; margin: 20px auto; padding: 0 24px; }
+        .breadcrumb a { color: #01519A; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .category-container { max-width: 1200px; margin: 40px auto; display: flex; gap: 32px; }
+        .category-filters { width: 260px; background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); padding: 24px; }
+        .category-filters h3 { font-size: 1.1rem; color: #01519A; margin-bottom: 18px; }
+        .category-filters label { font-weight: 600; color: #222; margin-top: 12px; display: block; }
+        .category-filters select, .category-filters input { width: 100%; margin-bottom: 10px; padding: 6px; border-radius: 4px; border: 1px solid #ddd; }
+        .category-products { flex: 1; }
+        .category-title { font-size: 1.5rem; font-weight: 700; color: #01519A; margin-bottom: 18px; }
+        .category-description { color: #666; margin-bottom: 24px; }
+        .sort-container { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+        .sort-container select { padding: 6px; border-radius: 4px; border: 1px solid #ddd; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+        .product-card { background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); padding: 18px; display: flex; flex-direction: column; align-items: center; }
+        .product-card img { width: 180px; height: 180px; object-fit: contain; margin-bottom: 10px; }
+        .product-card h3 { font-size: 1rem; font-weight: 600; text-align: center; margin: 0 0 8px 0; }
+        .product-card .price-info { margin-bottom: 8px; }
+        .product-card .old-price { text-decoration: line-through; color: #888; margin-right: 8px; }
+        .product-card .current-price { color: #e31e24; font-weight: bold; }
+        .product-card .discount-badge { background: #ffd600; color: #222; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-size: 0.95rem; margin-bottom: 6px; }
+        .product-card .details-btn { background: #01519A; color: #fff; border: none; border-radius: 4px; padding: 7px 16px; text-decoration: none; font-weight: 600; transition: background 0.2s; }
+        .product-card .details-btn:hover { background: #e31e24; }
+        .product-card .add-to-cart-btn { background: #e31e24; color: #fff; border: none; border-radius: 4px; padding: 7px 16px; text-decoration: none; font-weight: 600; transition: background 0.2s; margin-top: 8px; }
+        .product-card .add-to-cart-btn:hover { background: #01519A; }
+        .pagination { margin: 32px 0 0 0; text-align: center; }
+        .pagination a { display: inline-block; padding: 6px 14px; margin: 0 3px; background: #eee; color: #01519A; border-radius: 4px; text-decoration: none; font-weight: 600; }
+        .pagination a.active, .pagination a:hover { background: #01519A; color: #fff; }
+        .simple-footer { background: #1a1a1a; color: #fff; text-align: center; padding: 32px 0 16px 0; margin-top: 48px; }
+        .simple-footer p { color: #bbb; font-size: 0.95rem; margin: 0 0 8px 0; }
+        @media (max-width: 900px) { .category-container { flex-direction: column; } .category-filters { width: 100%; margin-bottom: 24px; } }
+        .custom-notification {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            background: #222;
+            color: #fff;
+            padding: 16px 28px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+            z-index: 9999;
+            opacity: 0.95;
+            animation: fadeInOut 2s;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(30px); }
+            10% { opacity: 0.95; transform: translateY(0); }
+            90% { opacity: 0.95; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(30px); }
+        }
+    </style>
+</head>
+<body>
+    <header class="header-simple">
+        <div class="container">
+            <div class="logo"><a href="index.html"><img src="images/logo.png" alt="Emir Lastik Logo"></a></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Anasayfa</a></li>
+                    <li><a href="binek.html">Binek</a></li>
+                    <li><a href="hafif-ticari.html">Hafif Ticari</a></li>
+                    <li><a href="suv4x4.html">SUV/4x4</a></li>
+                    <li><a href="sepet.html"><i class="fas fa-shopping-cart"></i>Sepet</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="breadcrumb">
+        <a href="index.html">Anasayfa</a> &gt; <a href="suv4x4.html">SUV/4x4</a>
+    </div>
+    <div class="category-container">
+        <aside class="category-filters">
+            <h3>Filtrele</h3>
+            <label>Marka</label>
+            <select>
+                <option>Hepsi</option>
+                <option>Petlas</option>
+                <option>Dunlop</option>
+                <option>Falken</option>
+            </select>
+            <label>Araç Tipi</label>
+            <select>
+                <option>Hepsi</option>
+                <option>SUV/4x4</option>
+            </select>
+            <label>Mevsim</label>
+            <select>
+                <option>Hepsi</option>
+                <option>Yaz</option>
+                <option>Kış</option>
+                <option>4 Mevsim</option>
+            </select>
+            <label>Taban Genişliği</label>
+            <select>
+                <option>Hepsi</option>
+                <option>205</option>
+                <option>215</option>
+                <option>225</option>
+                <option>235</option>
+                <option>245</option>
+                <option>255</option>
+                <option>265</option>
+                <option>275</option>
+                <option>285</option>
+            </select>
+            <label>Kesit Oranı</label>
+            <select>
+                <option>Hepsi</option>
+                <option>40</option>
+                <option>45</option>
+                <option>50</option>
+                <option>55</option>
+                <option>60</option>
+                <option>65</option>
+                <option>70</option>
+                <option>75</option>
+                <option>80</option>
+            </select>
+            <label>Jant Çapı</label>
+            <select>
+                <option>Hepsi</option>
+                <option>R15</option>
+                <option>R16</option>
+                <option>R17</option>
+                <option>R18</option>
+                <option>R19</option>
+                <option>R20</option>
+            </select>
+            <button style="width:100%;margin-top:10px;background:#01519A;color:#fff;border:none;padding:8px 0;border-radius:4px;font-weight:600;">Filtrele</button>
+        </aside>
+        <main class="category-products">
+            <div class="category-title">SUV/4x4 Lastikler <span style="color:#888;font-size:1rem;" id="productCount"></span></div>
+            <div class="category-description">SUV / 4x4 Araç Lastikleri her türlü sürüş koşulları için üretilmiş lastikler ve farklı araçlar için üretilen çok geniş ürün gamı ile Lastikleri keşfedin...</div>
+            <div class="sort-container">
+                <div>Toplam <span id="totalProducts">0</span> ürün</div>
+                <select id="sortSelect">
+                    <option value="recommended">Önerilen sıralama</option>
+                    <option value="price-asc">En düşük fiyat</option>
+                    <option value="price-desc">En yüksek fiyat</option>
+                    <option value="rating">Çok değerlendirilenler</option>
+                    <option value="discount">İndirim oranı</option>
+                    <option value="newest">Yeni eklenenler</option>
+                </select>
+            </div>
+            <div class="product-grid" id="productGrid"></div>
+            <div class="pagination" id="pagination"></div>
+        </main>
+    </div>
+    <footer class="simple-footer">
+        <p>&copy; 2024 Emir Lastik. Tüm hakları saklıdır.</p>
+        <p>Lastikler 2024 ve 2025 yılı üretim olmak üzere fabrika stok durumuna göre sevk edilmektedir.</p>
+        <p>Ücretsiz montaj, Emir Lastik için sunulan bir kampanyadır!</p>
+    </footer>
+    <div class="custom-notification"></div>
+    <script>
+    const allProducts = [
+        {
+            id: 201,
+            name: "LT265/60 R18 TL 119/116Q LRE PEAKLANDER M/T PETLAS",
+            brand: "Petlas",
+            type: "SUV/4x4",
+            season: "Kış",
+            width: "265",
+            aspect: "60",
+            rim: "R18",
+            oldPrice: 13510.45,
+            price: 9187.20,
+            discount: 32,
+            image: "images/tires/petlas-peaklander-mt.jpg"
+        },
+        {
+            id: 202,
+            name: "LT285/70 R17 TL 121/118Q LRE PEAKLANDER M/T PETLAS",
+            brand: "Petlas",
+            type: "SUV/4x4",
+            season: "Kış",
+            width: "285",
+            aspect: "70",
+            rim: "R17",
+            oldPrice: 16566.85,
+            price: 11265.60,
+            discount: 32,
+            image: "images/tires/petlas-peaklander-mt-2.jpg"
+        },
+        {
+            id: 203,
+            name: "35X12.50 R20LT TL 121Q LRE PEAKLANDER M/T PETLAS",
+            brand: "Petlas",
+            type: "SUV/4x4",
+            season: "Kış",
+            width: "35",
+            aspect: "12.50",
+            rim: "R20",
+            oldPrice: 19241.65,
+            price: 13084.80,
+            discount: 32,
+            image: "images/tires/petlas-peaklander-mt-3.jpg"
+        },
+        {
+            id: 204,
+            name: "33X12.50 R15LT TL 108Q LRC PEAKLANDER M/T PETLAS",
+            brand: "Petlas",
+            type: "SUV/4x4",
+            season: "Kış",
+            width: "33",
+            aspect: "12.50",
+            rim: "R15",
+            oldPrice: 13689.25,
+            price: 9309.60,
+            discount: 32,
+            image: "images/tires/petlas-peaklander-mt-4.jpg"
+        },
+        {
+            id: 205,
+            name: "35X12.50 R15LT TL 113Q LRC PEAKLANDER M/T PETLAS",
+            brand: "Petlas",
+            type: "SUV/4x4",
+            season: "Kış",
+            width: "35",
+            aspect: "12.50",
+            rim: "R15",
+            oldPrice: 15098.05,
+            price: 10267.20,
+            discount: 32,
+            image: "images/tires/petlas-peaklander-mt-5.jpg"
+        },
+        {
+            id: 206,
+            name: "LT245/75 R17 TL 121/118Q LRE PEAKLANDER M/T PETLAS",
+            brand: "Petlas",
+            type: "SUV/4x4",
+            season: "Kış",
+            width: "245",
+            aspect: "75",
+            rim: "R17",
+            oldPrice: 14074.45,
+            price: 9571.20,
+            discount: 32,
+            image: "images/tires/petlas-peaklander-mt-6.jpg"
+        },
+        {
+            id: 207,
+            name: "35X12.50 R18LT TL 118Q LRD PEAKLANDER M/T PETLAS",
+            brand: "Petlas",
+            type: "SUV/4x4",
+            season: "Kış",
+            width: "35",
+            aspect: "12.50",
+            rim: "R18",
+            oldPrice: 18009.25,
+            price: 12247.20,
+            discount: 32,
+            image: "images/tires/petlas-peaklander-mt-7.jpg"
+        },
+        {
+            id: 208,
+            name: "LT265/70 R17 TL 121/118Q LRE PEAKLANDER M/T PETLAS",
+            brand: "Petlas",
+            type: "SUV/4x4",
+            season: "Kış",
+            width: "265",
+            aspect: "70",
+            rim: "R17",
+            oldPrice: 14664.85,
+            price: 9973.20,
+            discount: 32,
+            image: "images/tires/petlas-peaklander-mt-8.jpg"
+        },
+        {
+            id: 209,
+            name: "LT245/70 R16 TL 113/110Q LRD PEAKLANDER M/T PETLAS",
+            brand: "Petlas",
+            type: "SUV/4x4",
+            season: "Kış",
+            width: "245",
+            aspect: "70",
+            rim: "R16",
+            oldPrice: 11022.85,
+            price: 7496.40,
+            discount: 32,
+            image: "images/tires/petlas-peaklander-mt-9.jpg"
+        },
+        {
+            id: 210,
+            name: "225/65 R17 TL 106V XL EUROWINTER HS02 PRO FALKEN",
+            brand: "Falken",
+            type: "SUV/4x4",
+            season: "Kış",
+            width: "225",
+            aspect: "65",
+            rim: "R17",
+            oldPrice: 7342.29,
+            price: 5139.60,
+            discount: 30,
+            image: "images/tires/falken-eurowinter-hs02-pro.jpg"
+        },
+        {
+            id: 211,
+            name: "235/60 R18 TL 107V XL EUROWINTER HS02 PRO FALKEN",
+            brand: "Falken",
+            type: "SUV/4x4",
+            season: "Kış",
+            width: "235",
+            aspect: "60",
+            rim: "R18",
+            oldPrice: 7996.29,
+            price: 5598.00,
+            discount: 30,
+            image: "images/tires/falken-eurowinter-hs02-pro-2.jpg"
+        },
+        {
+            id: 212,
+            name: "255/55 R19 TL 111V XL EUROWINTER HS02 PRO FALKEN",
+            brand: "Falken",
+            type: "SUV/4x4",
+            season: "Kış",
+            width: "255",
+            aspect: "55",
+            rim: "R19",
+            oldPrice: 9859.89,
+            price: 6902.40,
+            discount: 30,
+            image: "images/tires/falken-eurowinter-hs02-pro-3.jpg"
+        },
+        {
+            id: 213,
+            name: "255/50 R19 TL 107V XL EUROWINTER HS02 PRO FALKEN",
+            brand: "Falken",
+            type: "SUV/4x4",
+            season: "Kış",
+            width: "255",
+            aspect: "50",
+            rim: "R19",
+            oldPrice: 9685.89,
+            price: 6781.20,
+            discount: 30,
+            image: "images/tires/falken-eurowinter-hs02-pro-4.jpg"
+        },
+        {
+            id: 214,
+            name: "235/60 R17 TL 106V XL EUROWINTER HS02 PRO FALKEN",
+            brand: "Falken",
+            type: "SUV/4x4",
+            season: "Kış",
+            width: "235",
+            aspect: "60",
+            rim: "R17",
+            oldPrice: 7644.69,
+            price: 5352.00,
+            discount: 30,
+            image: "images/tires/falken-eurowinter-hs02-pro-5.jpg"
+        },
+        {
+            id: 215,
+            name: "235/60 R19 TL 107V XL EUROWINTER HS02 PRO FALKEN",
+            brand: "Falken",
+            type: "SUV/4x4",
+            season: "Kış",
+            width: "235",
+            aspect: "60",
+            rim: "R19",
+            oldPrice: 9859.89,
+            price: 6902.40,
+            discount: 30,
+            image: "images/tires/falken-eurowinter-hs02-pro-6.jpg"
+        }
+    ];
+    const productsPerPage = 8;
+    let currentPage = 1;
+    function getFilterValues() {
+        return {
+            brand: document.querySelectorAll('.category-filters select')[0].value,
+            type: document.querySelectorAll('.category-filters select')[1].value,
+            season: document.querySelectorAll('.category-filters select')[2].value,
+            width: document.querySelectorAll('.category-filters select')[3].value,
+            aspect: document.querySelectorAll('.category-filters select')[4].value,
+            rim: document.querySelectorAll('.category-filters select')[5].value
+        };
+    }
+    function filterProducts() {
+        const filters = getFilterValues();
+        let filtered = allProducts.filter(p => {
+            return (filters.brand === 'Hepsi' || p.brand === filters.brand)
+                && (filters.type === 'Hepsi' || p.type === filters.type)
+                && (filters.season === 'Hepsi' || p.season === filters.season)
+                && (filters.width === 'Hepsi' || p.width === filters.width)
+                && (filters.aspect === 'Hepsi' || p.aspect === filters.aspect)
+                && (filters.rim === 'Hepsi' || p.rim === filters.rim);
+        });
+        return filtered;
+    }
+    function sortProducts(products, sortBy) {
+        switch(sortBy) {
+            case 'price-asc':
+                return products.sort((a, b) => a.price - b.price);
+            case 'price-desc':
+                return products.sort((a, b) => b.price - a.price);
+            case 'discount':
+                return products.sort((a, b) => b.discount - a.discount);
+            case 'newest':
+                return products.sort((a, b) => b.id - a.id);
+            default:
+                return products;
+        }
+    }
+    function renderProducts(page = 1) {
+        const filtered = filterProducts();
+        const sortBy = document.getElementById('sortSelect').value;
+        const sorted = sortProducts(filtered, sortBy);
+        const grid = document.getElementById('productGrid');
+        const productCount = document.getElementById('productCount');
+        const totalProducts = document.getElementById('totalProducts');
+        productCount.textContent = `(${filtered.length} ürün)`;
+        totalProducts.textContent = filtered.length;
+        grid.innerHTML = '';
+        const start = (page - 1) * productsPerPage;
+        const end = start + productsPerPage;
+        sorted.slice(start, end).forEach(product => {
+            grid.innerHTML += `
+                <div class="product-card">
+                    <img src="${product.image}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <div class="price-info">
+                        <span class="old-price">${product.oldPrice.toLocaleString('tr-TR', {minimumFractionDigits:2})} TL</span>
+                        <span class="current-price">${product.price.toLocaleString('tr-TR', {minimumFractionDigits:2})} TL</span>
+                    </div>
+                    <a href="urun-detay.html?id=${product.id}" class="details-btn">Detaylar</a>
+                    <button class="add-to-cart-btn" onclick='addToCart(${JSON.stringify(product)})'>Sepete Ekle</button>
+                </div>
+            `;
+        });
+        renderPagination(filtered.length, page);
+    }
+    function renderPagination(total, page) {
+        const pageCount = Math.ceil(total / productsPerPage);
+        const pag = document.getElementById('pagination');
+        pag.innerHTML = '';
+        for (let i = 1; i <= pageCount; i++) {
+            pag.innerHTML += `<a href="#" class="${i === page ? 'active' : ''}" onclick="goToPage(${i});return false;">${i}</a>`;
+        }
+    }
+    function goToPage(page) {
+        currentPage = page;
+        renderProducts(page);
+    }
+    function showNotification(message) {
+        let notif = document.createElement('div');
+        notif.className = 'custom-notification';
+        notif.textContent = message;
+        document.body.appendChild(notif);
+        setTimeout(() => notif.remove(), 2000);
+    }
+    function addToCart(product) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const existing = cart.find(item => item.id === product.id);
+        if (existing) {
+            existing.quantity += 1;
+        } else {
+            cart.push({ id: product.id, name: product.name, price: product.price, quantity: 1 });
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        showNotification('Ürün sepete eklendi!');
+    }
+    Array.from(document.querySelectorAll('.category-filters select')).forEach(sel => {
+        sel.addEventListener('change', () => {
+            currentPage = 1;
+            renderProducts(1);
+        });
+    });
+    document.querySelector('.category-filters button').addEventListener('click', () => {
+        currentPage = 1;
+        renderProducts(1);
+    });
+    document.getElementById('sortSelect').addEventListener('change', () => {
+        currentPage = 1;
+        renderProducts(1);
+    });
+    renderProducts(1);
+    </script>
+</body>
+</html> 

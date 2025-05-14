@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Binek Lastikler - EMR GRUP</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background: #f7f7f7; margin: 0; font-family: 'Segoe UI', Arial, sans-serif; }
+        .header-simple, .simple-footer { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        .header-simple .container {
+            max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 16px 24px;
+        }
+        .header-simple .logo img { height: 54px; }
+        .header-simple nav ul { display: flex; gap: 24px; list-style: none; padding: 0; margin: 0; align-items: center; }
+        .header-simple nav ul li a { color: #01519A; font-weight: 600; text-decoration: none; padding: 8px 16px; border-radius: 4px; transition: background 0.2s, color 0.2s; }
+        .header-simple nav ul li a:hover { background: #01519A; color: #fff; }
+        .category-container { max-width: 1200px; margin: 40px auto; display: flex; gap: 32px; }
+        .category-filters { width: 260px; background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); padding: 24px; }
+        .category-filters h3 { font-size: 1.1rem; color: #01519A; margin-bottom: 18px; }
+        .category-filters label { font-weight: 600; color: #222; margin-top: 12px; display: block; }
+        .category-filters select, .category-filters input { width: 100%; margin-bottom: 10px; padding: 6px; border-radius: 4px; border: 1px solid #ddd; }
+        .category-products { flex: 1; }
+        .category-title { font-size: 1.5rem; font-weight: 700; color: #01519A; margin-bottom: 18px; }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+        .product-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .product-card img.binek-fotolari {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            object-position: center;
+            margin-bottom: 16px;
+            border-radius: 8px;
+        }
+        .product-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 12px;
+            min-height: 48px;
+            line-height: 1.4;
+        }
+        .discount-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #e31e24;
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .price-info {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-bottom: 16px;
+        }
+        .old-price {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 0.9rem;
+        }
+        .current-price {
+            color: #e31e24;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .details-btn {
+            display: inline-block;
+            background: #01519A;
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.2s ease;
+            text-decoration: none;
+            margin-top: auto;
+        }
+        .details-btn:hover {
+            background: #e31e24;
+            color: #fff;
+        }
+        .add-to-cart-btn {
+            background: #e31e24;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 24px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+            margin-top: 8px;
+            cursor: pointer;
+        }
+        .add-to-cart-btn:hover {
+            background: #01519A;
+        }
+        .pagination { margin: 32px 0 0 0; text-align: center; }
+        .pagination a { display: inline-block; padding: 6px 14px; margin: 0 3px; background: #eee; color: #01519A; border-radius: 4px; text-decoration: none; font-weight: 600; }
+        .pagination a.active, .pagination a:hover { background: #01519A; color: #fff; }
+        .simple-footer { background: #1a1a1a; color: #fff; text-align: center; padding: 32px 0 16px 0; margin-top: 48px; }
+        .simple-footer p { color: #bbb; font-size: 0.95rem; margin: 0 0 8px 0; }
+        @media (max-width: 900px) { .category-container { flex-direction: column; } .category-filters { width: 100%; margin-bottom: 24px; } }
+        @media (max-width: 700px) {
+            .product-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 480px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .custom-notification {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            background: #222;
+            color: #fff;
+            padding: 16px 28px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+            z-index: 9999;
+            opacity: 0.95;
+            animation: fadeInOut 2s;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(30px); }
+            10% { opacity: 0.95; transform: translateY(0); }
+            90% { opacity: 0.95; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(30px); }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-contact">
+                    <span><i class="fas fa-envelope"></i> satis@emirlastik.com</span>
+                    <span><i class="fas fa-phone"></i> 0 850 285 63 85</span>
+                </div>
+                <div class="header-actions">
+                    <a href="giris.html"><i class="fas fa-user"></i> Giriş Yap</a> |
+                    <a href="uye-ol.html">Üye Ol</a> |
+                    <a href="sepet.html">Sepet <span class="cart-count">0</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container" style="display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+                <div class="logo" style="flex-shrink: 0;">
+                    <a href="index.html"><img class="binek-fotolari" src="https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/8df02ac1b8e75c991945f0ac5e25d1a8" alt="Emir Lastik Logo" style="height: 70px;"></a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Anasayfa</a></li>
+                        <li><a href="binek.html">Binek</a></li>
+                        <li><a href="hafif-ticari.html">Hafif Ticari</a></li>
+                        <li><a href="suv4x4.html">SUV/4x4</a></li>
+                        <li><a href="sepet.html">Sepet</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="category-container">
+        <aside class="category-filters">
+            <h3>Filtrele</h3>
+            <label>Marka</label>
+            <select><option>Hepsi</option><option>Petlas</option><option>Dunlop</option><option>Falken</option></select>
+            <label>Araç Tipi</label>
+            <select><option>Hepsi</option><option>Binek</option><option>SUV/4x4</option><option>Hafif Ticari</option></select>
+            <label>Mevsim</label>
+            <select><option>Hepsi</option><option>Yaz</option><option>Kış</option><option>4 Mevsim</option></select>
+            <label>Run Flat</label>
+            <select><option>Hepsi</option><option>Evet</option><option>Hayır</option></select>
+            <label>Taban Genişliği</label>
+            <select><option>Hepsi</option><option>155</option><option>175</option><option>185</option><option>195</option><option>205</option><option>215</option><option>225</option><option>235</option><option>245</option><option>255</option></select>
+            <label>Kesit Oranı</label>
+            <select><option>Hepsi</option><option>35</option><option>40</option><option>45</option><option>50</option><option>55</option><option>60</option><option>65</option><option>70</option><option>80</option></select>
+            <label>Jant Çapı</label>
+            <select><option>Hepsi</option><option>R12</option><option>R13</option><option>R14</option><option>R15</option><option>R16</option><option>R17</option><option>R18</option><option>R19</option><option>R20</option></select>
+            <label>Hız Sembolü</label>
+            <select><option>Hepsi</option><option>Y (300 KM/S)</option><option>W (270 KM/S)</option><option>V (240 KM/S)</option><option>H (210 KM/S)</option><option>T (190 KM/S)</option><option>R (170 KM/S)</option></select>
+            <label>Yük İndeksi</label>
+            <select><option>Hepsi</option><option>69</option><option>71</option><option>73</option><option>74</option><option>75</option><option>77</option><option>79</option><option>81</option><option>82</option><option>83</option><option>84</option><option>85</option><option>86</option><option>87</option><option>88</option><option>89</option><option>90</option><option>91</option><option>92</option><option>93</option><option>94</option><option>95</option><option>96</option><option>97</option><option>98</option><option>99</option><option>100</option><option>101</option><option>102</option><option>103</option><option>104</option><option>107</option><option>110</option><option>112</option><option>114</option></select>
+            <button style="width:100%;margin-top:10px;background:#01519A;color:#fff;border:none;padding:8px 0;border-radius:4px;font-weight:600;">Filtrele</button>
+        </aside>
+        <main class="category-products">
+            <div class="category-title">Binek Araç Lastikleri <span style="color:#888;font-size:1rem;" id="productCount"></span></div>
+            <div style="background:#e9f3ff;padding:14px 18px;border-radius:8px;margin-bottom:18px;font-size:1.05rem;color:#01519A;">
+                Binek Araç Lastikleri AKO Güvencesi ile her türlü sürüş koşulları için üretilmiş lastikler ve farklı araçlar için üretilen çok geniş ürün gamı ile Lastikleri keşfedin...
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+                <span style="font-weight:600;">Sırala:</span>
+                <select id="sortSelect" style="padding:4px 10px;border-radius:4px;border:1px solid #ddd;">
+                    <option>Önerilen</option>
+                    <option>En düşük fiyat</option>
+                    <option>En yüksek fiyat</option>
+                    <option>Çok değerlendirilenler</option>
+                    <option>Yüksek puanlılar</option>
+                    <option>İndirim oranı</option>
+                    <option>Yeni eklenenler</option>
+                </select>
+            </div>
+            <div class="product-grid" id="productGrid">
+                <!-- Ürünler buraya dinamik olarak eklenecek -->
+            </div>
+            <div class="pagination" id="pagination"></div>
+        </main>
+    </div>
+    <footer class="simple-footer">
+        <p>&copy; 2024 EMR GRUP. Tüm hakları saklıdır.</p>
+        <p>Lastikler 2024 ve 2025 yılı üretim olmak üzere fabrika stok durumuna göre sevk edilmektedir.</p>
+        <p>Ücretsiz montaj, EMR GRUP için sunulan bir kampanyadır!</p>
+    </footer>
+    <style>
+    .footer-contact-btn {
+        display: inline-block;
+        background: #01519A;
+        color: #fff !important;
+        text-decoration: none;
+        padding: 14px 36px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-top: 18px;
+        box-shadow: 0 2px 8px rgba(1,81,154,0.08);
+        transition: background 0.2s, color 0.2s;
+        border: none;
+    }
+    .footer-contact-btn:hover {
+        background: #e31e24;
+        color: #fff !important;
+    }
+    </style>
+    <script>
+    // Ürün verisi örneği
+    const allProducts = [
+        {
+            id: 1,
+            name: "155/80 R13 TL 79T SNOWMASTER 2 PETLAS",
+            brand: "Petlas",
+            type: "Binek",
+            season: "Kış",
+            width: "155",
+            aspect: "80",
+            rim: "R13",
+            oldPrice: 2913.09,
+            price: 2040.00,
+            discount: 35,
+            image: "images/tires/petlas-snowmaster-2.jpg"
+        },
+        {
+            id: 2,
+            name: "175/70 R14 TL 84T SNOWMASTER 2 PETLAS",
+            brand: "Petlas",
+            type: "Binek",
+            season: "Kış",
+            width: "175",
+            aspect: "70",
+            rim: "R14",
+            oldPrice: 3233.49,
+            price: 2264.40,
+            discount: 35,
+            image: "images/tires/petlas-imperium-pt515.jpg"
+        },
+        // ... daha fazla ürün ekleyin ...
+    ];
+
+    const productsPerPage = 8;
+    let currentPage = 1;
+
+    function getFilterValues() {
+        return {
+            brand: document.querySelectorAll('.category-filters select')[0].value,
+            type: document.querySelectorAll('.category-filters select')[1].value,
+            season: document.querySelectorAll('.category-filters select')[2].value,
+            width: document.querySelectorAll('.category-filters select')[3].value,
+            aspect: document.querySelectorAll('.category-filters select')[4].value,
+            rim: document.querySelectorAll('.category-filters select')[5].value
+        };
+    }
+
+    function filterProducts() {
+        const filters = getFilterValues();
+        let filtered = allProducts.filter(p => {
+            return (filters.brand === 'Hepsi' || p.brand === filters.brand)
+                && (filters.type === 'Hepsi' || p.type === filters.type)
+                && (filters.season === 'Hepsi' || p.season === filters.season)
+                && (filters.width === 'Hepsi' || p.width === filters.width)
+                && (filters.aspect === 'Hepsi' || p.aspect === filters.aspect)
+                && (filters.rim === 'Hepsi' || p.rim === filters.rim);
+        });
+        return filtered;
+    }
+
+    function showNotification(message) {
+        let notif = document.createElement('div');
+        notif.className = 'custom-notification';
+        notif.textContent = message;
+        document.body.appendChild(notif);
+        setTimeout(() => notif.remove(), 2000);
+    }
+
+    function addToCart(product) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const existing = cart.find(item => item.id === product.id);
+        if (existing) {
+            existing.quantity += 1;
+        } else {
+            cart.push({ id: product.id, name: product.name, price: product.price, quantity: 1 });
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        showNotification('Ürün sepete eklendi!');
+    }
+
+    function renderProducts(page = 1) {
+        const filtered = filterProducts();
+        const grid = document.getElementById('productGrid');
+        const productCount = document.getElementById('productCount');
+        productCount.textContent = `(${filtered.length} ürün)`;
+        grid.innerHTML = '';
+        const start = (page - 1) * productsPerPage;
+        const end = start + productsPerPage;
+        filtered.slice(start, end).forEach(product => {
+            grid.innerHTML += `
+                <div class="product-card" onclick="window.location.href='urun-detay.html?id=${product.id}'">
+                    ${product.discount ? `<span class='discount-badge'>%${product.discount} İndirim</span>` : ''}
+                    <img class="binek-fotolari" src="${product.image}" alt="${product.name}" onerror="this.src='images/no-image.jpg'">
+                    <h3>${product.name}</h3>
+                    <div class="price-info">
+                        <span class="old-price">${product.oldPrice.toLocaleString('tr-TR', {minimumFractionDigits:2})} TL</span>
+                        <span class="current-price">${product.price.toLocaleString('tr-TR', {minimumFractionDigits:2})} TL</span>
+                    </div>
+                    <button class="add-to-cart-btn" onclick='event.stopPropagation();addToCart(${JSON.stringify(product)})'>Sepete Ekle</button>
+                </div>
+            `;
+        });
+        renderPagination(filtered.length, page);
+    }
+
+    function renderPagination(total, page) {
+        const pageCount = Math.ceil(total / productsPerPage);
+        const pag = document.getElementById('pagination');
+        pag.innerHTML = '';
+        for (let i = 1; i <= pageCount; i++) {
+            pag.innerHTML += `<a href="#" class="${i === page ? 'active' : ''}" onclick="goToPage(${i});return false;">${i}</a>`;
+        }
+    }
+
+    function goToPage(page) {
+        currentPage = page;
+        renderProducts(page);
+    }
+
+    // Filtre değiştiğinde ürünleri güncelle
+    Array.from(document.querySelectorAll('.category-filters select')).forEach(sel => {
+        sel.addEventListener('change', () => {
+            currentPage = 1;
+            renderProducts(1);
+        });
+    });
+
+    document.querySelector('.category-filters button').addEventListener('click', () => {
+        currentPage = 1;
+        renderProducts(1);
+    });
+
+    // Sayfa yüklendiğinde ürünleri göster
+    renderProducts(1);
+    </script>
+</body>
+</html> 

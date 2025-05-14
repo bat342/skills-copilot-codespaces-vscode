@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sık Sorulan Sorular - Emir Lastik</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .faq-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .faq-title {
+            text-align: center;
+            color: #01519A;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+        .faq-item {
+            background: #fff;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #e0e0e0;
+        }
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #333;
+            transition: background-color 0.2s;
+        }
+        .faq-question:hover {
+            background-color: #f8f9fa;
+        }
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            color: #666;
+            line-height: 1.6;
+        }
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 1000px;
+        }
+        .faq-item.active .faq-question {
+            color: #01519A;
+        }
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        .breadcrumb {
+            background: #f8f9fa;
+            padding: 12px 0;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .breadcrumb .container {
+            display: flex;
+            gap: 8px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .breadcrumb a {
+            color: #01519A;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="main-header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-contact">
+                    <span><i class="fas fa-envelope"></i> satis@emirlastik.com</span>
+                    <span><i class="fas fa-phone"></i> 0 850 285 63 85</span>
+                </div>
+                <div class="header-actions">
+                    <a href="giris.html"><i class="fas fa-user"></i> Giriş Yap</a> |
+                    <a href="uye-ol.html">Üye Ol</a> |
+                    <a href="sepet.html">Sepet <span class="cart-count">0</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container" style="display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+                <div class="logo" style="flex-shrink: 0;">
+                    <a href="index.html"><img src="https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/8df02ac1b8e75c991945f0ac5e25d1a8" alt="Emir Lastik Logo" style="height: 70px;"></a>
+                </div>
+                <nav class="main-nav" style="flex: 1;">
+                    <ul style="display: flex; align-items: center; gap: 12px;">
+                        <li class="dropdown">
+                            <a href="#">LASTİKLER <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="lastikler.html?tip=binek">Binek</a></li>
+                                <li><a href="lastikler.html?tip=hafif-ticari">Hafif Ticari</a></li>
+                                <li><a href="lastikler.html?tip=suv-4x4">SUV/4x4</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                        <li><a href="markalarimiz.html">Markalarımız</a></li>
+                        <li><a href="nasil-calisir.html">Nasıl Çalışır?</a></li>
+                        <li><a href="montaj-noktalari.html">Montaj Noktaları</a></li>
+                        <li><a href="yol-yardim.html">Yol Yardım</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Anasayfa</a>
+            <span>/</span>
+            <span>Sık Sorulan Sorular</span>
+        </div>
+    </div>
+
+    <!-- FAQ CONTENT -->
+    <div class="faq-container">
+        <h1 class="faq-title">Sık Sorulan Sorular</h1>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                Lastik etiketi nedir? Ne işe yarar?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                Lastik etiketinde yakıt tasarrufu, yol tutuş kabiliyeti, gürültü ölçümleri gibi bilgilere yer verilerek tüketicilerin en doğru şekilde bilgilendirilmesi amaçlanır.<br><br>
+                <strong>Yakıt Tasarrufu:</strong><br>
+                Sınıfı G'den (en az etkin) A'ya (en çok etkin) kadar 7 sınıf. Etki araç ve sürüş koşullarına göre değişiklik gösterebilir, ancak tam bir lastik takımı için bir G ve A sınıfı arasındaki fark yakıt tüketimini %7,5'a kadar düşürebilir.<br><br>
+                <strong>Islak Yol Tutuş:</strong><br>
+                Sınıfı G'den (en uzun fren mesafeleri) A'ya (en kısa fren mesafeleri) kadar 7 sınıf. Etki araç ve sürüş koşullarına göre değişiklik gösterebilir, ancak tam fren durumunda dört aynı lastik takımı için bir G ve A arasındaki fark fren mesafesinde %30 kadar daha kısa olabilir.<br><br>
+                <strong>Lastik Dış Yuvarlama Ses Sınıfı:</strong><br>
+                1 siyah çubuktan (en az ses) 3 siyah çubuk (en çok ses) kadar 3 sınıf. Desibel dB(A) cinsinden ses seviyesinin yanı sıra bir piktogram lastik dış yuvarlanma ses performansını gösterir.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Lastik üzerindeki bilgiler ne ifade eder?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <strong>Lastiğin üretim tarihi:</strong><br>
+                İlk iki hane üretildiği yıl içerisinde kaçıncı haftada üretildiğini gösterir (01-52 arası). Son iki hane ise üretildiği yılın son iki rakamını temsil eder.<br><br>
+                <strong>Yük ve Hız İndeksi:</strong><br>
+                Yük İndeksleri ve hız sembolleri lastiğin her iki yanağında gösterilir. Hız indeksi, bir lastiğin maksimum hizmet hızını belirtir. Yanağında gösterge bulunmayan radyal lastikler saatte 110 kilometreye kadar hız yapabilirler.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Asimetrik Lastik Nedir?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                Asimetrik lastikler mümkün olan en iyi ıslak ve kuru zemin performansını sağlayabilmek için özelleşmiştir. Bu tip lastiklerde iç ve dış taraf farklı amaçlara hizmet eder:<br><br>
+                - Dışa gelen tarafı, büyük bloklar ve dar kanallara sahiptir. Bu özellik kuru zemin performansını arttırır, dönüşlerde emniyet sağlar.<br>
+                - İçe gelen taraf ise daha küçük bloklar ve geniş kanallara sahiptir. Bu sayede ıslak/karlı zeminde su/kar daha iyi tahliye edilir, yere tutunma artar.<br>
+                - Sırt merkezi, lastiğin düz gidişlerde optimum dengesini sağlar.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Kış lastiği zorunlu mu?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                Yasal zorunluluğa göre: tüm ticari araçlar (traktörler, römorklar, 2/3 tekerlekli araçlar ve askeri araçlar kapsam dışıdır) kış lastiği kullanmak zorundadır. Kış lastiği takma zorunluluğu 01 Aralık- 01 Nisan tarihleri arasıdır. Valilikler, kış lastiği uygulamasını, dört aylık sürenin öncesinde ve/veya sonrasında 1'er ay arttırabilir.<br><br>
+                Binek araçlarda ise yasal zorunluluk olmasa da kış lastiği ya da 4 mevsim lastik + zincir bulundurulması olası kazaların önüne geçmek için bir gereklidir. Çünkü Kış lastikleri +7 ile -40 derece arasındaki sıcaklıklarda sertleşmeyi önleyen yumuşak bir bileşime ve karlı, buzlu yollarda tutunmayı artırıcı kılcal desenlere sahiptir.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Sadece ön ya da arkada kış lastiği olması yeter mi?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                Sadece ön ya da sadece arka kısma takılan kış lastikleri aracın yola tamamen tutunmasını engelliyor ve araç hakimiyetinin kaybetmeye yol açmaktadır. Bu yüzden yoldan kaynaklanabilecek hatalara karşı araç üzerindeki tüm lastikler kış lastiği olmalı, aynı zamanda mutlaka aynı desen ve aynı modelde olmalıdır.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Lastikler nasıl saklanmalıdır?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                Lastikler jantları ile birlikte saklanacak ise üst üste yatık şekilde depolanabilirler. Eğer jantsız depolanacaklarsa dik bir şekilde ve yan yana konumlandırılmalıdırlar. Burada amaç lastiğin deformasyonunu engellemektir.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Yaz lastiği kışın, kış lastiği yazın kullanılır mı?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                Yaz lastikleri hava sıcaklığının yükseldiği zamanlarda yumuşayarak yol tutuş kabiliyetinin düşmemesi için, kış lastikleri ise tam tersi havanın soğuk olduğu zamanlarda sertleşmemesi için özel olarak üretilir.<br><br>
+                Lastiklerin aşırı yumuşaması ya da sertleşmesi yüksek diş derinliğine sahip yoğun oluklu desene sahip olması sebebiyle fren mesafesi 3 metreden 7 metreye kadar uzatabilir. Ayrıca lastikler uygun mevsimlerde kullanılmadığında ömürleri daha kısa olacak ve aracınızın yakıt tüketimi artacaktır.
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-logo"><img src="images/logo.png" alt="Emir Lastik Logo"></div>
+                <div class="footer-columns">
+                    <div class="footer-col">
+                        <h4>ÜYELİK</h4>
+                        <ul>
+                            <li><a href="uye-ol.html">Yeni Üyelik</a></li>
+                            <li><a href="giris.html">Üye Girişi</a></li>
+                            <li><a href="hesabim.html">Hesabım</a></li>
+                            <li><a href="sifremi-unuttum.html">Şifremi Unuttum</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>BİLGİ</h4>
+                        <ul>
+                            <li><a href="yuk-endeksi.html">Yük Endeksi & Hız Sembolü</a></li>
+                            <li><a href="iptal-ve-iade.html">İade Şartları</a></li>
+                            <li><a href="garanti.html">Garanti Koşulları</a></li>
+                            <li><a href="kvkk.html">KVKK Aydınlatma Metni</a></li>
+                            <li><a href="gizlilik.html">Gizlilik ve Güvenlik</a></li>
+                            <li><a href="sss.html">S.S.S</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>ALIŞVERİŞ</h4>
+                        <ul>
+                            <li><a href="nasil-calisir.html">Nasıl Çalışır</a></li>
+                            <li><a href="sepet.html">Alışveriş Sepetim</a></li>
+                            <li><a href="montaj-noktalari.html">Montaj Noktaları</a></li>
+                            <li><a href="kargo-takip.html">Kargom Nerede?</a></li>
+                            <li><a href="iade-formu.html">İade Formu</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>İLETİŞİM</h4>
+                        <p>Emir Lastik A.Ş<br>Yeni Mah. 54200 Erenler, SAKARYA<br>0 850 285 63 85<br>satis@emirlastik.com</p>
+                    </div>
+                    <div class="footer-col">
+                        <h4>KURUMSAL</h4>
+                        <ul>
+                            <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                            <li><a href="iletisim.html">İletişim</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom" style="text-align: center; padding: 20px 0;">
+                <p>Copyright © 2015 Her Hakkı Saklıdır. Tüm Bilgiler 256 Bit SSL sertifikası ile korunmaktadır.</p>
+                <p>Lastikler 2024 ve 2025 yılı üretim olmak üzere fabrika stok durumuna göre sevk edilmektedir.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all items
+                    faqItems.forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                    });
+                    
+                    // If the clicked item wasn't active, open it
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

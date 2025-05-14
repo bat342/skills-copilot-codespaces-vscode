@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markalarımız - EMR GRUP</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="main-header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-contact">
+                    <span><i class="fas fa-envelope"></i> satis@emirlastik.com</span>
+                    <span><i class="fas fa-phone"></i> 0 850 285 63 85</span>
+                </div>
+                <div class="header-actions">
+                    <a href="giris.html"><i class="fas fa-user"></i> Giriş Yap</a> |
+                    <a href="uye-ol.html">Üye Ol</a> |
+                    <a href="sepet.html">Sepet <span class="cart-count">0</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container" style="display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+                <nav class="main-nav" style="flex: 1;">
+                    <ul style="display: flex; align-items: center; gap: 12px;">
+                        <li class="dropdown">
+                            <a href="#">LASTİKLER <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="lastikler.html?tip=binek">Binek</a></li>
+                                <li><a href="lastikler.html?tip=hafif-ticari">Hafif Ticari</a></li>
+                                <li><a href="lastikler.html?tip=suv-4x4">SUV/4x4</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="logo" style="flex-shrink: 0;">
+                    <a href="index.html"><img src="https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/8df02ac1b8e75c991945f0ac5e25d1a8" alt="Emir Lastik Logo" style="height: 54px;"></a>
+                </div>
+                <form class="header-search" style="flex: 1; display: flex; justify-content: flex-end;">
+                    <input type="text" placeholder="Lastik ara...">
+                    <button>Ara</button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <a href="index.html" class="back-home-btn">Ana Sayfaya Dön</a>
+    <style>
+    .back-home-btn {
+        position: fixed;
+        top: 24px;
+        right: 32px;
+        z-index: 1000;
+        background: #01519A;
+        color: #fff;
+        padding: 10px 22px;
+        border-radius: 6px;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 2px 8px rgba(1,81,154,0.08);
+        transition: background 0.2s, color 0.2s;
+        font-size: 15px;
+    }
+    .back-home-btn:hover {
+        background: #e31e24;
+        color: #fff;
+    }
+    @media (max-width: 600px) {
+        .back-home-btn {
+            top: 10px;
+            right: 10px;
+            padding: 8px 12px;
+            font-size: 13px;
+        }
+    }
+    </style>
+
+    <!-- SLIDER (REKLAM PANELİ) EN ÜSTTE -->
+    <section class="main-slider-row">
+        <div class="main-slider">
+            <div class="slider-container">
+                <div class="slider-slide active">
+                    <img src="https://i.bstr.es/espaciofurgo/2024/04/toyota-hilux-gr-sport_5-1110x577.jpg" alt="Toyota Hilux GR Sport">
+                    <div class="slider-caption">
+                        <h2>Her Yolda Güvenli Sürüş</h2>
+                    </div>
+                </div>
+                <div class="slider-slide">
+                    <img src="https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/0a6fb3a2f819b086541b9d81fc610c7f" alt="Luxury Car">
+                    <div class="slider-caption">
+                        <h2>Yeni Nesil Perfotmans</h2>
+                    </div>
+                </div>
+                <div class="slider-slide">
+                    <img src="https://arabam-blog.mncdn.com/wp-content/uploads/2020/07/land-rover.jpg" alt="Land Rover">
+                    <div class="slider-caption">
+                        <h2>Zoru Kolay Yapar</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </section>
+    <!-- FİLTRE KUTUSU SLIDER ALTINDA -->
+    <section class="main-filter-section">
+        <div class="container">
+            <div class="main-filter-box">
+                <div class="search-tabs">
+                    <button class="active">EBADA GÖRE</button>
+                    <button>ARACA GÖRE</button>
+                    <button>KATALOG</button>
+                </div>
+                <div class="search-form">
+                    <!-- Varsayılan sekme: EBADA GÖRE -->
+                    <div class="form-group">
+                        <label>ARAÇ TİPİ</label>
+                        <select><option>Seçiniz</option><option>Binek</option><option>Hafif Ticari</option><option>SUV/4x4</option></select>
+                    </div>
+                    <div class="form-group">
+                        <label>MEVSİM</label>
+                        <select><option>Seçiniz</option><option>Yaz</option><option>Kış</option><option>Dört Mevsim</option></select>
+                    </div>
+                    <div class="form-group">
+                        <label>TABAN GENİŞLİĞİ</label>
+                        <select><option>Seçiniz</option><option>315</option><option>295</option><option>285</option><option>275</option><option>265</option><option>255</option><option>245</option><option>235</option><option>225</option><option>215</option><option>205</option><option>195</option><option>185</option><option>175</option><option>165</option><option>155</option><option>145</option></select>
+                    </div>
+                    <div class="form-group">
+                        <label>KESİT ORANI</label>
+                        <select><option>Seçiniz</option><option>30</option><option>35</option><option>40</option><option>45</option><option>50</option><option>55</option><option>60</option><option>65</option><option>70</option><option>75</option><option>80</option></select>
+                    </div>
+                    <div class="form-group">
+                        <label>JANT ÇAPI</label>
+                        <select><option>Seçiniz</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option></select>
+                    </div>
+                    <button class="search-btn" type="button">ARA</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AVANTAJLAR -->
+    <section class="advantages">
+        <div class="container">
+            <h2 class="section-title">AVANTAJLARINIZ</h2>
+            <div class="advantage-cards">
+                <div class="card"><i class="fas fa-credit-card"></i><h3>Kredi Kartına Taksit</h3><p>Detaylar için...</p></div>
+                <div class="card"><i class="fas fa-truck"></i><h3>Ücretsiz Kargo</h3><p>Seçmiş olduğunuz Montaj noktasına kargo ücretsizdir</p></div>
+                <div class="card"><i class="fas fa-tools"></i><h3>Ücretsiz Montaj</h3><p>Montaj servislerimizde sökme, takma ve balans hizmetleri ücretsizdir</p></div>
+                <div class="card"><i class="fas fa-shield-alt"></i><h3>+2 Yıl Garanti</h3><p>Lastiklerimiz 2 yıl boyunca garantimiz altında</p></div>
+                <div class="card"><i class="fas fa-undo"></i><h3>Kolay İade</h3><p>14 gün içinde iade imkanı, detaylar için...</p></div>
+                <div class="card"><i class="fas fa-smile"></i><h3>Müşteri Memnuniyeti</h3><p>%100 memnuniyet...</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARKA BAZLI ÜRÜNLER -->
+    <section class="brand-featured-products">
+        <div class="container">
+            <!-- PETLAS -->
+            <div class="brand-block petlas-block">
+                <div class="brand-header"><img src="images/petlas-logo.png" alt="Petlas"><span>ÖNE ÇIKAN ÜRÜNLER</span></div>
+                <div class="product-slider">
+                    <div class="product-page active">
+                        <div class="product-card">
+                            <img src="images/products/tire1.jpg" alt="Petlas Snowmaster 2">
+                            <h3>Petlas Snowmaster 2</h3>
+                            <div class="price-info">
+                                <span class="old-price">2.913,09 TL</span>
+                                <span class="current-price">2.040,00 TL</span>
+                            </div>
+                            <a href="urun-detay.html?id=petlas1" class="details-btn">Detaylar</a>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/products/tire2.jpg" alt="Petlas Imperium PT515">
+                            <h3>Petlas Imperium PT515</h3>
+                            <div class="price-info">
+                                <span class="old-price">3.233,49 TL</span>
+                                <span class="current-price">2.264,40 TL</span>
+                            </div>
+                            <a href="urun-detay.html?id=petlas2" class="details-btn">Detaylar</a>
+                        </div>
+                    </div>
+                    <button class="slider-arrow prev">❮</button>
+                    <button class="slider-arrow next">❯</button>
+                    <div class="slider-dots">
+                        <span class="dot active"></span>
+                    </div>
+                </div>
+            </div>
+            <!-- DUNLOP -->
+            <div class="brand-block dunlop-block">
+                <div class="brand-header"><img src="images/dunlop-logo.png" alt="Dunlop"><span>ÖNE ÇIKAN ÜRÜNLER</span></div>
+                <div class="product-slider">
+                    <div class="product-page active">
+                        <div class="product-card">
+                            <img src="images/products/tire3.jpg" alt="Dunlop Sport Bluresponse">
+                            <h3>Dunlop Sport Bluresponse</h3>
+                            <div class="price-info">
+                                <span class="old-price">4.200,00 TL</span>
+                                <span class="current-price">3.499,00 TL</span>
+                            </div>
+                            <a href="urun-detay.html?id=dunlopsport" class="details-btn">Detaylar</a>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/products/tire4.jpg" alt="Dunlop Winter Sport 5">
+                            <h3>Dunlop Winter Sport 5</h3>
+                            <div class="price-info">
+                                <span class="old-price">5.000,00 TL</span>
+                                <span class="current-price">4.250,00 TL</span>
+                            </div>
+                            <a href="urun-detay.html?id=dunlopwinter" class="details-btn">Detaylar</a>
+                        </div>
+                    </div>
+                    <button class="slider-arrow prev">❮</button>
+                    <button class="slider-arrow next">❯</button>
+                    <div class="slider-dots">
+                        <span class="dot active"></span>
+                    </div>
+                </div>
+            </div>
+            <!-- FALKEN -->
+            <div class="brand-block falken-block">
+                <div class="brand-header"><img src="images/falken-logo.png" alt="Falken"><span>ÖNE ÇIKAN ÜRÜNLER</span></div>
+                <div class="product-slider">
+                    <div class="product-page active">
+                        <div class="product-card">
+                            <img src="images/products/tire5.jpg" alt="Falken Azenis FK510">
+                            <h3>Falken Azenis FK510</h3>
+                            <div class="price-info">
+                                <span class="old-price">6.000,00 TL</span>
+                                <span class="current-price">4.950,00 TL</span>
+                            </div>
+                            <a href="urun-detay.html?id=falkenfk510" class="details-btn">Detaylar</a>
+                        </div>
+                        <div class="product-card">
+                            <img src="images/products/tire6.jpg" alt="Falken Eurowinter HS01">
+                            <h3>Falken Eurowinter HS01</h3>
+                            <div class="price-info">
+                                <span class="old-price">5.500,00 TL</span>
+                                <span class="current-price">4.200,00 TL</span>
+                            </div>
+                            <a href="urun-detay.html?id=falkenhs01" class="details-btn">Detaylar</a>
+                        </div>
+                    </div>
+                    <button class="slider-arrow prev">❮</button>
+                    <button class="slider-arrow next">❯</button>
+                    <div class="slider-dots">
+                        <span class="dot active"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BANKA LOGOLARI -->
+    <section class="bank-logos">
+        <div class="container">
+            <img src="https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/03248567e9ba65baa9f7451c2e9491d2" alt="Banka Görseli" style="height:38px; margin:0 10px 10px 0;">
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-logo"><img src="images/logo.png" alt="Emir Lastik Logo"></div>
+                <div class="footer-columns">
+                    <div class="footer-col">
+                        <h4>ÜYELİK</h4>
+                        <ul>
+                            <li><a href="uye-ol.html">Yeni Üyelik</a></li>
+                            <li><a href="giris.html">Üye Girişi</a></li>
+                            <li><a href="hesabim.html">Hesabım</a></li>
+                            <li><a href="sifremi-unuttum.html">Şifremi Unuttum</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>BİLGİ</h4>
+                        <ul>
+                            <li><a href="yuk-endeksi.html">Yük Endeksi & Hız Sembolü</a></li>
+                            <li><a href="iptal-ve-iade.html">İade Şartları</a></li>
+                            <li><a href="garanti.html">Garanti Koşulları</a></li>
+                            <li><a href="kvkk.html">KVKK Aydınlatma Metni</a></li>
+                            <li><a href="gizlilik.html">Gizlilik ve Güvenlik</a></li>
+                            <li><a href="sss.html">S.S.S</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>KURUMSAL</h4>
+                        <ul>
+                            <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                            <li><a href="iletisim.html">İletişim</a></li>
+                            <li><a href="tartismalar.html">Tartışmalar</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>ALIŞVERİŞ</h4>
+                        <ul>
+                            <li><a href="nasil-calisir.html">Nasıl Çalışır</a></li>
+                            <li><a href="sepet.html">Alışveriş Sepetim</a></li>
+                            <li><a href="montaj-noktalari.html">Montaj Noktaları</a></li>
+                            <li><a href="kargo-takip.html">Kargom Nerede?</a></li>
+                            <li><a href="iade-formu.html">İade Formu</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>İLETİŞİM</h4>
+                        <p>Emir Lastik A.Ş<br>Yeni Mah. 54200 Erenler, SAKARYA<br>0 850 285 63 85<br>satis@emirlastik.com</p>
+                    </div>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>E-POSTA LİSTESİ</h4>
+                    <form><input type="email" placeholder="E-posta adresiniz..."><button>KAYDOL</button></form>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom" style="text-align: center; padding: 20px 0;">
+                <p>Copyright © 2015 Her Hakkı Saklıdır. Tüm Bilgiler 256 Bit SSL sertifikası ile korunmaktadır.</p>
+                <p>Lastikler 2024 ve 2025 yılı üretim olmak üzere fabrika stok durumuna göre sevk edilmektedir.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html> 

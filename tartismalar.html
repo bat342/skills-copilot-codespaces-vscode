@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tartışmalar - Emir Lastik</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background: #f7f7f7; margin: 0; font-family: 'Segoe UI', Arial, sans-serif; }
+        .discussion-section { max-width: 900px; margin: 40px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(1,81,154,0.08); padding: 32px 24px; }
+        .discussion-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+        .discussion-header h1 { color: #01519A; font-size: 2rem; }
+        .new-topic-btn { background: #01519A; color: #fff; border: none; border-radius: 6px; font-size: 1rem; font-weight: 600; padding: 10px 22px; cursor: pointer; transition: background 0.2s; }
+        .new-topic-btn:hover { background: #e31e24; }
+        .topic-list { margin-top: 18px; }
+        .topic-card { background: #f8f9fa; border-radius: 8px; padding: 18px 20px; margin-bottom: 16px; box-shadow: 0 1px 6px rgba(1,81,154,0.04); position: relative; }
+        .topic-title { font-size: 1.15rem; font-weight: 700; color: #01519A; margin-bottom: 6px; }
+        .topic-meta { color: #666; font-size: 0.95rem; margin-bottom: 8px; }
+        .topic-content { color: #222; font-size: 1.05rem; margin-bottom: 10px; }
+        .reply-list { margin-top: 10px; margin-left: 18px; }
+        .reply-card { background: #fff; border-radius: 6px; padding: 12px 14px; margin-bottom: 8px; box-shadow: 0 1px 4px rgba(1,81,154,0.03); }
+        .reply-meta { color: #888; font-size: 0.92rem; margin-bottom: 2px; }
+        .reply-content { color: #333; font-size: 1rem; }
+        .reply-form { display: flex; gap: 8px; margin-top: 8px; }
+        .reply-form input, .reply-form textarea { border: 1px solid #ddd; border-radius: 4px; padding: 7px; font-size: 1rem; }
+        .reply-form textarea { min-height: 40px; resize: vertical; }
+        .reply-form button { background: #01519A; color: #fff; border: none; border-radius: 4px; font-size: 1rem; font-weight: 600; padding: 7px 18px; cursor: pointer; transition: background 0.2s; }
+        .reply-form button:hover { background: #e31e24; }
+        .new-topic-modal { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.18); z-index: 9999; align-items: center; justify-content: center; }
+        .new-topic-modal.active { display: flex; }
+        .modal-content { background: #fff; border-radius: 10px; padding: 32px 24px; max-width: 400px; width: 100%; box-shadow: 0 2px 16px rgba(1,81,154,0.12); }
+        .modal-content h2 { color: #01519A; margin-bottom: 18px; }
+        .modal-content input, .modal-content textarea { width: 100%; border: 1px solid #ddd; border-radius: 6px; padding: 10px; font-size: 1rem; margin-bottom: 12px; }
+        .modal-content textarea { min-height: 70px; resize: vertical; }
+        .modal-content .modal-actions { display: flex; justify-content: flex-end; gap: 10px; }
+        .modal-content button { background: #01519A; color: #fff; border: none; border-radius: 6px; font-size: 1rem; font-weight: 600; padding: 10px 18px; cursor: pointer; transition: background 0.2s; }
+        .modal-content button.cancel { background: #888; }
+        .modal-content button.cancel:hover { background: #e31e24; }
+        .modal-content button:hover:not(.cancel) { background: #e31e24; }
+        @media (max-width: 700px) { .discussion-section { padding: 12px 2px; } .modal-content { padding: 18px 6px; } }
+        .delete-topic-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #e31e24;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 4px 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        .delete-topic-btn:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container" style="padding: 18px 0 0 0;">
+            <img src="https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/8df02ac1b8e75c991945f0ac5e25d1a8" alt="Emir Lastik Logo" style="height:80px;display:block;margin:0 auto;">
+        </div>
+    </header>
+    <a href="index.html" class="back-home-btn">Ana Sayfaya Dön</a>
+    <main>
+        <div class="container">
+            <section class="discussion-section">
+                <div class="discussion-header">
+                    <h1>Tartışmalar</h1>
+                    <button class="new-topic-btn" onclick="openNewTopicModal()"><i class="fas fa-plus"></i> Yeni Tartışma</button>
+                </div>
+                <div id="topicList" class="topic-list"></div>
+            </section>
+        </div>
+    </main>
+    <div class="new-topic-modal" id="newTopicModal">
+        <div class="modal-content">
+            <h2>Yeni Tartışma Başlat</h2>
+            <input type="text" id="topicTitle" placeholder="Başlık" required>
+            <textarea id="topicContent" placeholder="Tartışma içeriği" required></textarea>
+            <input type="text" id="topicAuthor" placeholder="Adınız" required>
+            <div class="modal-actions">
+                <button class="cancel" onclick="closeNewTopicModal()">İptal</button>
+                <button onclick="createTopic()">Oluştur</button>
+            </div>
+        </div>
+    </div>
+    <!-- Silme Onay Modali -->
+    <div id="deleteConfirmModal" class="new-topic-modal">
+        <div class="modal-content" style="max-width:340px;">
+            <h2 style="font-size:1.2rem;">Tartışmayı Sil</h2>
+            <p>Bu tartışmayı silmek istediğinizden emin misiniz?</p>
+            <div class="modal-actions">
+                <button class="cancel" onclick="closeDeleteModal()">İptal</button>
+                <button style="background:#e31e24;" onclick="confirmDeleteTopic()">Evet, Sil</button>
+            </div>
+        </div>
+    </div>
+    <script>
+    // LocalStorage'da tartışma verisi tut
+    function getTopics() {
+        return JSON.parse(localStorage.getItem('discussions') || '[]');
+    }
+    function saveTopics(topics) {
+        localStorage.setItem('discussions', JSON.stringify(topics));
+    }
+    function renderTopics() {
+        const topics = getTopics();
+        const topicList = document.getElementById('topicList');
+        if (topics.length === 0) {
+            topicList.innerHTML = '<p style="color:#888;text-align:center;">Henüz tartışma yok. İlk tartışmayı siz başlatın!</p>';
+            return;
+        }
+        topicList.innerHTML = '';
+        topics.forEach((topic, idx) => {
+            let repliesHTML = '';
+            if (topic.replies && topic.replies.length > 0) {
+                repliesHTML = '<div class="reply-list">' + topic.replies.map(reply => `
+                    <div class="reply-card">
+                        <div class="reply-meta">${reply.author} - ${new Date(reply.date).toLocaleString('tr-TR')}</div>
+                        <div class="reply-content">${reply.content}</div>
+                    </div>
+                `).join('') + '</div>';
+            }
+            topicList.innerHTML += `
+                <div class="topic-card">
+                    <button class="delete-topic-btn" onclick="deleteTopic(${idx})">
+                        <i class="fas fa-trash"></i> Sil
+                    </button>
+                    <div class="topic-title">${topic.title}</div>
+                    <div class="topic-meta">${topic.author} - ${new Date(topic.date).toLocaleString('tr-TR')}</div>
+                    <div class="topic-content">${topic.content}</div>
+                    <form class="reply-form" onsubmit="event.preventDefault(); addReply(${idx}, this);">
+                        <input type="text" name="author" placeholder="Adınız" required>
+                        <textarea name="content" placeholder="Yanıtınız" required></textarea>
+                        <button type="submit">Yanıtla</button>
+                    </form>
+                    ${repliesHTML}
+                </div>
+            `;
+        });
+    }
+    function openNewTopicModal() {
+        document.getElementById('newTopicModal').classList.add('active');
+    }
+    function closeNewTopicModal() {
+        document.getElementById('newTopicModal').classList.remove('active');
+        document.getElementById('topicTitle').value = '';
+        document.getElementById('topicContent').value = '';
+        document.getElementById('topicAuthor').value = '';
+    }
+    function createTopic() {
+        const title = document.getElementById('topicTitle').value.trim();
+        const content = document.getElementById('topicContent').value.trim();
+        const author = document.getElementById('topicAuthor').value.trim();
+        if (!title || !content || !author) return;
+        const topics = getTopics();
+        topics.unshift({ title, content, author, date: new Date().toISOString(), replies: [] });
+        saveTopics(topics);
+        closeNewTopicModal();
+        renderTopics();
+    }
+    function addReply(idx, form) {
+        const author = form.author.value.trim();
+        const content = form.content.value.trim();
+        if (!author || !content) return;
+        const topics = getTopics();
+        topics[idx].replies = topics[idx].replies || [];
+        topics[idx].replies.push({ author, content, date: new Date().toISOString() });
+        saveTopics(topics);
+        renderTopics();
+    }
+    let deleteTopicIdx = null;
+    function deleteTopic(idx) {
+        deleteTopicIdx = idx;
+        document.getElementById('deleteConfirmModal').classList.add('active');
+    }
+    function closeDeleteModal() {
+        deleteTopicIdx = null;
+        document.getElementById('deleteConfirmModal').classList.remove('active');
+    }
+    function confirmDeleteTopic() {
+        if (deleteTopicIdx !== null) {
+            const topics = getTopics();
+            topics.splice(deleteTopicIdx, 1);
+            saveTopics(topics);
+            renderTopics();
+        }
+        closeDeleteModal();
+    }
+    document.addEventListener('DOMContentLoaded', renderTopics);
+    </script>
+    <style>
+    .back-home-btn {
+        position: fixed;
+        top: 24px;
+        right: 32px;
+        z-index: 1000;
+        background: #01519A;
+        color: #fff;
+        padding: 10px 22px;
+        border-radius: 6px;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 2px 8px rgba(1,81,154,0.08);
+        transition: background 0.2s, color 0.2s;
+        font-size: 15px;
+    }
+    .back-home-btn:hover {
+        background: #e31e24;
+        color: #fff;
+    }
+    @media (max-width: 600px) {
+        .back-home-btn {
+            top: 10px;
+            right: 10px;
+            padding: 8px 12px;
+            font-size: 13px;
+        }
+    }
+    </style>
+</body>
+</html> 

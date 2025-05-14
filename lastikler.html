@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lastikler - EMR GRUP</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Yalnızca yatay menü, logo yok -->
+    <nav style="background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.04);padding:18px 0;">
+        <ul style="display:flex;justify-content:center;align-items:center;gap:80px;list-style:none;margin:0;padding:0;">
+            <li><a href="index.html" style="color:#01519A;font-weight:600;font-size:1.3rem;text-decoration:none;transition:color 0.2s;">Anasayfa</a></li>
+            <li><a href="lastikler.html?tip=binek" style="color:#01519A;font-weight:600;font-size:1.3rem;text-decoration:none;transition:color 0.2s;">Binek</a></li>
+            <li><a href="lastikler.html?tip=hafif-ticari" style="color:#01519A;font-weight:600;font-size:1.3rem;text-decoration:none;transition:color 0.2s;">Hafif Ticari</a></li>
+            <li><a href="lastikler.html?tip=suv4x" style="color:#01519A;font-weight:600;font-size:1.3rem;text-decoration:none;transition:color 0.2s;">SUV/4x4</a></li>
+            <li><a href="sepet.html" style="color:#01519A;font-weight:600;font-size:1.3rem;text-decoration:none;transition:color 0.2s;">Sepet</a></li>
+        </ul>
+    </nav>
+
+    <!-- Ana İçerik -->
+    <main>
+        <div class="container my-4">
+            <div class="row">
+        <section class="tires-section">
+            <div class="container" style="display:flex;gap:32px;max-width:1200px;margin:0 auto;padding:24px;">
+                <!-- Sol Filtreler -->
+                <aside id="filters" style="width:260px;background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);padding:24px;">
+                    <!-- Filtreler JavaScript ile doldurulacak -->
+                </aside>
+                <!-- Sağ Ürünler ve üst açıklama -->
+                <div style="flex:1;">
+                    <div id="category-header" style="margin-bottom:24px;">
+                        <!-- Başlık ve açıklama JavaScript ile doldurulacak -->
+                    </div>
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+                        <span style="font-weight:600;">Sırala:</span>
+                        <select style="padding:4px 10px;border-radius:4px;border:1px solid #ddd;">
+                            <option>Önerilen sıralama</option>
+                            <option>En düşük fiyat</option>
+                            <option>En yüksek fiyat</option>
+                            <option>Çok değerlendirilenler</option>
+                            <option>Yüksek puanlılar</option>
+                            <option>İndirim oranı</option>
+                            <option>Yeni eklenenler</option>
+                        </select>
+                    </div>
+                    <div id="product-grid" class="product-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;">
+                        <!-- Ürünler JavaScript ile doldurulacak -->
+                    </div>
+                    <div id="pagination" class="pagination" style="display:flex;justify-content:center;gap:8px;margin-top:32px;">
+                        <!-- Sayfalama JavaScript ile doldurulacak -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="modern-footer bg-dark text-light mt-5 pt-4 pb-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="footer-logo mb-3"><img src="images/logo.png" alt="EMR GRUP Logo" class="img-fluid"></div>
+                    <ul class="list-unstyled">
+                        <li><a href="uye-ol.html" class="text-light">Yeni Üyelik</a></li>
+                        <li><a href="giris.html" class="text-light">Üye Girişi</a></li>
+                        <li><a href="hesabim.html" class="text-light">Hesabım</a></li>
+                        <li><a href="sifremi-unuttum.html" class="text-light">Şifremi Unuttum</a></li>
+                        <li class="mt-2"><a href="iletisim.html" class="btn btn-primary btn-block">İletişime Geç</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5>ALIŞVERİŞ</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="nasil-calisir.html" class="text-light">Nasıl Çalışır</a></li>
+                        <li><a href="sepet.html" class="text-light">Alışveriş Sepetim</a></li>
+                        <li><a href="kargo-takip.html" class="text-light">Kargom Nerede?</a></li>
+                        <li><a href="banka-kampanyalari.html" class="text-light">Banka Kampanyaları</a></li>
+                        <li><a href="iade-formu.html" class="text-light">İade Formu</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5>KURUMSAL</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="hakkimizda.html" class="text-light">Hakkımızda</a></li>
+                        <li><a href="markalarimiz.html" class="text-light">Markalarımız</a></li>
+                        <li><a href="iletisim.html" class="text-light">İletişim</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center py-3 border-top border-secondary mt-3">
+                <small>Copyright © 2024 EMR GRUP. Tüm Hakları Saklıdır.</small>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Kategori verileri
+        const categoryData = {
+            'binek': {
+                title: 'Binek',
+                description: 'Binek Araç Lastikleri her türlü sürüş koşulları için üretilmiş lastikler ve farklı araçlar için üretilen çok geniş ürün gamı ile Lastikleri keşfedin...',
+                filters: {
+                    marka: [
+                        { name: 'PETLAS', count: 254 },
+                        { name: 'DUNLOP', count: 72 },
+                        { name: 'FALKEN', count: 85 }
+                    ],
+                    aracTipi: [
+                        { name: 'Binek', count: 409 },
+                        { name: 'SUV/4X4', count: 2 }
+                    ],
+                    mevsim: [
+                        { name: 'Yaz', count: 215 },
+                        { name: '4 Mevsim', count: 57 },
+                        { name: 'Kış', count: 139 }
+                    ],
+                    runFlat: [
+                        { name: 'Evet', count: 11 },
+                        { name: 'Hayır', count: 399 }
+                    ],
+                    tabanGenisligi: [
+                        { name: '145', count: 2 },
+                        { name: '155', count: 14 },
+                        { name: '165', count: 24 },
+                        { name: '175', count: 40 },
+                        { name: '185', count: 54 },
+                        { name: '195', count: 54 },
+                        { name: '205', count: 46 },
+                        { name: '215', count: 50 },
+                        { name: '225', count: 42 },
+                        { name: '235', count: 29 },
+                        { name: '245', count: 31 },
+                        { name: '255', count: 19 },
+                        { name: '265', count: 2 },
+                        { name: '275', count: 3 },
+                        { name: '285', count: 1 }
+                    ],
+                    kesitOrani: [
+                        { name: '35', count: 20 },
+                        { name: '40', count: 35 },
+                        { name: '45', count: 55 },
+                        { name: '50', count: 41 },
+                        { name: '55', count: 72 },
+                        { name: '60', count: 56 },
+                        { name: '65', count: 86 },
+                        { name: '70', count: 40 },
+                        { name: '80', count: 6 }
+                    ],
+                    jantCapi: [
+                        { name: 'R20', count: 10 },
+                        { name: 'R19', count: 29 },
+                        { name: 'R18', count: 50 },
+                        { name: 'R17', count: 73 },
+                        { name: 'R16', count: 72 },
+                        { name: 'R15', count: 89 },
+                        { name: 'R14', count: 63 },
+                        { name: 'R13', count: 21 },
+                        { name: 'R12', count: 4 }
+                    ],
+                    hizSembolu: [
+                        { name: 'Y (300 KM/S)', count: 9 },
+                        { name: 'W (270 KM/S)', count: 91 },
+                        { name: 'V (240 KM/S)', count: 109 },
+                        { name: 'H (210 KM/S)', count: 102 },
+                        { name: 'T (190 KM/S)', count: 77 },
+                        { name: 'R (170 KM/S)', count: 1 }
+                    ],
+                    yukIndeksi: [
+                        { name: '69', count: 1 },
+                        { name: '71', count: 1 },
+                        { name: '73', count: 3 },
+                        { name: '74', count: 1 },
+                        { name: '75', count: 8 },
+                        { name: '77', count: 6 },
+                        { name: '79', count: 12 },
+                        { name: '81', count: 6 },
+                        { name: '82', count: 30 },
+                        { name: '83', count: 3 },
+                        { name: '84', count: 28 },
+                        { name: '85', count: 6 },
+                        { name: '86', count: 16 },
+                        { name: '87', count: 13 },
+                        { name: '88', count: 40 },
+                        { name: '89', count: 4 },
+                        { name: '90', count: 1 },
+                        { name: '91', count: 38 },
+                        { name: '92', count: 17 },
+                        { name: '93', count: 14 },
+                        { name: '94', count: 18 },
+                        { name: '95', count: 32 },
+                        { name: '96', count: 15 },
+                        { name: '97', count: 12 },
+                        { name: '98', count: 18 },
+                        { name: '99', count: 22 },
+                        { name: '100', count: 12 },
+                        { name: '101', count: 9 },
+                        { name: '102', count: 7 },
+                        { name: '103', count: 5 },
+                        { name: '104', count: 5 },
+                        { name: '107', count: 1 },
+                        { name: '110', count: 1 },
+                        { name: '112', count: 1 },
+                        { name: '114', count: 1 }
+                    ]
+                },
+                products: [
+                    {
+                        name: '225/45 RF18 TL 95V REINF. SNOWMASTER 2 SPORT P-RFT PETLAS',
+                        oldPrice: '9.334,25 TL',
+                        newPrice: '6.068,40 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/033/snowmaster2sport.jpg?revision=1709279419'
+                    },
+                    {
+                        name: '235/45 R19 TL 99V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '11.350,25 TL',
+                        newPrice: '7.378,80 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/033/snowmaster2sport.jpg?revision=1709279419'
+                    },
+                    {
+                        name: '255/40 R19 TL 100V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '10.895,45 TL',
+                        newPrice: '7.082,40 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/033/snowmaster2sport.jpg?revision=1709279419'
+                    },
+                    {
+                        name: '255/40 R18 TL 99V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '7.890,65 TL',
+                        newPrice: '5.130,00 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/033/snowmaster2sport.jpg?revision=1709279419'
+                    },
+                    {
+                        name: '215/45 R18 TL 93V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '8.308,25 TL',
+                        newPrice: '5.401,20 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/033/snowmaster2sport.jpg?revision=1709279419'
+                    },
+                    {
+                        name: '225/40 ZR19 TL 93W REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '10.120,25 TL',
+                        newPrice: '6.578,40 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/033/snowmaster2sport.jpg?revision=1709279419'
+                    },
+                    {
+                        name: '245/40 R17 TL 95V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '8.526,65 TL',
+                        newPrice: '5.542,80 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/033/snowmaster2sport.jpg?revision=1709279419'
+                    },
+                    {
+                        name: '175/65 R14 TL 86T REINF. SNOWMASTER 2 PETLAS',
+                        oldPrice: '3.244,29 TL',
+                        newPrice: '2.271,60 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/602/snowmaster2.jpg?revision=1724851055'
+                    },
+                    {
+                        name: '225/50 R18 TL 99V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '9.809,45 TL',
+                        newPrice: '6.376,80 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/033/snowmaster2sport.jpg?revision=1709279419'
+                    },
+                    {
+                        name: '215/60 R16 TL 99H REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '6.725,49 TL',
+                        newPrice: '4.708,80 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/033/snowmaster2sport.jpg?revision=1709279419'
+                    },
+                    {
+                        name: '235/45 R18 TL 98V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '8.191,85 TL',
+                        newPrice: '5.325,60 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/033/snowmaster2sport.jpg?revision=1709279419'
+                    },
+                    {
+                        name: '215/50 R18 TL 92V SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '9.624,65 TL',
+                        newPrice: '6.256,80 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/033/snowmaster2sport.jpg?revision=1709279419'
+                    },
+                    {
+                        name: '225/45 R18 TL 95V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '8.130,65 TL',
+                        newPrice: '5.286,00 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/033/snowmaster2sport.jpg?revision=1709279419'
+                    },
+                    {
+                        name: '235/40 R18 TL 95V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '8.433,05 TL',
+                        newPrice: '5.481,60 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/033/snowmaster2sport.jpg?revision=1709279419'
+                    },
+                    {
+                        name: '205/55 R16 TL 91H SNOWMASTER 2 PETLAS',
+                        oldPrice: '6.604,29 TL',
+                        newPrice: '4.622,40 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/602/snowmaster2.jpg?revision=1724851055'
+                    },
+                    {
+                        name: '195/55 R15 TL 85H SNOWMASTER 2 PETLAS',
+                        oldPrice: '5.395,89 TL',
+                        newPrice: '3.777,60 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/602/snowmaster2.jpg?revision=1724851055'
+                    },
+                    {
+                        name: '155/70 R13 TL 75T SNOWMASTER 2 PETLAS',
+                        oldPrice: '2.860,29 TL',
+                        newPrice: '2.002,80 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/602/snowmaster2.jpg?revision=1724851055'
+                    },
+                    {
+                        name: '205/55 R16 TL 91H EUROWINTER HS02 PRO FALKEN',
+                        oldPrice: '7.604,29 TL',
+                        newPrice: '5.323,20 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/370/hs02.jpg?revision=1697143329'
+                    },
+                    {
+                        name: '195/55 R15 TL 85H EUROWINTER HS02 PRO FALKEN',
+                        oldPrice: '6.395,89 TL',
+                        newPrice: '4.477,20 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/370/hs02.jpg?revision=1697143329'
+                    },
+                    {
+                        name: '185/65 R15 TL 88H EUROWINTER HS02 PRO FALKEN',
+                        oldPrice: '5.395,89 TL',
+                        newPrice: '3.777,60 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/370/hs02.jpg?revision=1697143329'
+                    },
+                    {
+                        name: '175/65 R14 TL 82H EUROWINTER HS02 PRO FALKEN',
+                        oldPrice: '4.395,89 TL',
+                        newPrice: '3.077,20 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/370/hs02.jpg?revision=1697143329'
+                    },
+                    {
+                        name: '165/65 R14 TL 79H EUROWINTER HS02 PRO FALKEN',
+                        oldPrice: '3.395,89 TL',
+                        newPrice: '2.377,20 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/370/hs02.jpg?revision=1697143329'
+                    },
+                    {
+                        name: '155/70 R13 TL 75T EUROWINTER HS02 PRO FALKEN',
+                        oldPrice: '2.860,29 TL',
+                        newPrice: '2.002,80 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/370/hs02.jpg?revision=1697143329'
+                    },
+                    {
+                        name: '205/55 R16 TL 91H SP WINTER SPORT 500 DUNLOP',
+                        oldPrice: '7.604,29 TL',
+                        newPrice: '5.323,20 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/470/sp-winter-sport500-dunlop-lastik.jpg?revision=1697143329'
+                    },
+                    {
+                        name: '195/55 R15 TL 85H SP WINTER SPORT 500 DUNLOP',
+                        oldPrice: '6.395,89 TL',
+                        newPrice: '4.477,20 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/470/sp-winter-sport500-dunlop-lastik.jpg?revision=1697143329'
+                    },
+                    {
+                        name: '225/65 R17 TL 102H SP WINTER SPORT 500 DUNLOP',
+                        oldPrice: '8.080,29 TL',
+                        newPrice: '5.656,80 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/470/sp-winter-sport500-dunlop-lastik.jpg?revision=1697143329'
+                    },
+                    {
+                        name: '225/60 R17 TL 99H SP WINTER SPORT 500 DUNLOP',
+                        oldPrice: '8.854,29 TL',
+                        newPrice: '6.198,00 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/470/sp-winter-sport500-dunlop-lastik.jpg?revision=1697143329'
+                    },
+                    {
+                        name: '215/65 R16 TL 98H SP WINTER SPORT 500 DUNLOP',
+                        oldPrice: '6.304,29 TL',
+                        newPrice: '4.413,60 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/idea/cd/93/myassets/products/470/sp-winter-sport500-dunlop-lastik.jpg?revision=1697143329'
+                    },
+                    {
+                        name: '275/40 RF20 TL 106Y REINF. P-RFT EXPLERO H/T PT431 PETLAS',
+                        oldPrice: '10.536,85 TL',
+                        newPrice: '7.165,20 TL',
+                        discount: 32,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000069_275-40-rf20-tl-106y-reinf-p-rft-explero-h-t-pt431-petlas.jpeg'
+                    },
+                    {
+                        name: '215/65 R16 TL 98H EUROALL SEASON AS210 FALKEN',
+                        oldPrice: '5.520,69 TL',
+                        newPrice: '3.865,20 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000070_215-65-r16-tl-98h-euroall-season-as210-falken.jpeg'
+                    },
+                    {
+                        name: '215/65 R17 TL 103V XL EUROALL SEASON AS210 FALKEN',
+                        oldPrice: '6.348,69 TL',
+                        newPrice: '4.444,80 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000071_215-65-r17-tl-103v-xl-euroall-season-as210-falken.jpeg'
+                    },
+                    {
+                        name: '215/60 R17 TL 100V XL EUROALL SEASON AS210 FALKEN',
+                        oldPrice: '6.162,69 TL',
+                        newPrice: '4.314,00 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000072_215-60-r17-tl-100v-xl-euroall-season-as210-falken.jpeg'
+                    },
+                    {
+                        name: '225/65 R17 TL 106V XL EUROALL SEASON AS210 FALKEN',
+                        oldPrice: '6.435,09 TL',
+                        newPrice: '4.504,80 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000073_225-65-r17-tl-106v-xl-euroall-season-as210-falken.jpeg'
+                    },
+                    {
+                        name: '225/60 R17 TL 103V XL EUROALL SEASON AS210 FALKEN',
+                        oldPrice: '7.062,69 TL',
+                        newPrice: '4.944,00 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000074_225-60-r17-tl-103v-xl-euroall-season-as210-falken.jpeg'
+                    },
+                    {
+                        name: '215/55 R18 TL 99V XL EUROALL SEASON AS210 FALKEN',
+                        oldPrice: '8.608,29 TL',
+                        newPrice: '6.026,40 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000075_215-55-r18-tl-99v-xl-euroall-season-as210-falken.jpeg'
+                    },
+                    {
+                        name: '245/70 R16 TL 107T WILDPEAK A/T AT01 FALKEN',
+                        oldPrice: '8.565,68 TL',
+                        newPrice: '6.596,40 TL',
+                        discount: 23,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000076_245-70-r16-tl-107t-wildpeak-a-t-at01-falken.jpeg'
+                    },
+                    {
+                        name: '265/65 R17 TL 116S REINF. EXPLERO A/T PT421 PETLAS',
+                        oldPrice: '6.939,25 TL',
+                        newPrice: '4.719,60 TL',
+                        discount: 32,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000077_265-65-r17-tl-116s-reinf-explero-a-t-pt421-petlas.jpeg'
+                    },
+                    {
+                        name: '235/70 R16 TL 106H EXPLERO A/S PT411 PETLAS',
+                        oldPrice: '5.247,25 TL',
+                        newPrice: '3.568,80 TL',
+                        discount: 32,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000078_235-70-r16-tl-106h-explero-a-s-pt411-petlas.jpeg'
+                    },
+                    {
+                        name: '215/70 R16 TL 104H REINF. EXPLERO WINTER W671 PETLAS',
+                        oldPrice: '5.496,65 TL',
+                        newPrice: '3.573,60 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000079_215-70-r16-tl-104h-reinf-explero-winter-w671-petlas.jpeg'
+                    },
+                    {
+                        name: '215/70 R16 TL 100H EXPLERO A/S PT411 PETLAS',
+                        oldPrice: '4.781,65 TL',
+                        newPrice: '3.252,00 TL',
+                        discount: 32,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000080_215-70-r16-tl-100h-explero-a-s-pt411-petlas.jpeg'
+                    },
+                    {
+                        name: '265/70 R15 TL 116T REINF. (M+S) EXPLERO A/T PT421 PETLAS',
+                        oldPrice: '5.928,85 TL',
+                        newPrice: '4.032,00 TL',
+                        discount: 32,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000081_265-70-r15-tl-116t-reinf-m-s-explero-a-t-pt421-petlas.jpeg'
+                    },
+                    {
+                        name: '235/55 R19 TL 101V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '11.350,25 TL',
+                        newPrice: '7.378,80 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000082_235-55-r19-tl-101v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '255/55 R18 TL 109V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '10.895,45 TL',
+                        newPrice: '7.082,40 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000083_255-55-r18-tl-109v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '225/65 R17 TL 102H REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '8.308,25 TL',
+                        newPrice: '5.401,20 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000084_225-65-r17-tl-102h-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '245/65 R17 TL 111H REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '9.624,65 TL',
+                        newPrice: '6.256,80 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000085_245-65-r17-tl-111h-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '235/60 R18 TL 107V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '10.120,25 TL',
+                        newPrice: '6.578,40 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000086_235-60-r18-tl-107v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '265/60 R18 TL 110V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '11.350,25 TL',
+                        newPrice: '7.378,80 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000087_265-60-r18-tl-110v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '255/55 R19 TL 111V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '12.350,25 TL',
+                        newPrice: '8.027,80 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000088_255-55-r19-tl-111v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '265/50 R20 TL 107V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '13.038,69 TL',
+                        newPrice: '8.475,20 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000089_265-50-r20-tl-107v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '235/55 R20 TL 102V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '11.350,25 TL',
+                        newPrice: '7.378,80 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000090_235-55-r20-tl-102v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '255/50 R20 TL 109V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '12.350,25 TL',
+                        newPrice: '8.027,80 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000091_255-50-r20-tl-109v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '245/50 R20 TL 102V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '11.350,25 TL',
+                        newPrice: '7.378,80 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000092_245-50-r20-tl-102v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '235/50 R20 TL 101V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '10.895,45 TL',
+                        newPrice: '7.082,40 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000093_235-50-r20-tl-101v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '225/55 R20 TL 102V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '10.895,45 TL',
+                        newPrice: '7.082,40 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000094_225-55-r20-tl-102v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '215/55 R20 TL 99V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '9.624,65 TL',
+                        newPrice: '6.256,80 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000095_215-55-r20-tl-99v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '255/45 R20 TL 101V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '11.350,25 TL',
+                        newPrice: '7.378,80 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000096_255-45-r20-tl-101v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '245/45 R20 TL 99V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '10.895,45 TL',
+                        newPrice: '7.082,40 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000097_245-45-r20-tl-99v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '235/45 R20 TL 98V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '10.120,25 TL',
+                        newPrice: '6.578,40 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000098_235-45-r20-tl-98v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '225/45 R20 TL 95V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '9.624,65 TL',
+                        newPrice: '6.256,80 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000099_225-45-r20-tl-95v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '215/45 R20 TL 95V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '9.334,25 TL',
+                        newPrice: '6.068,40 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000100_215-45-r20-tl-95v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '255/40 R20 TL 101V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '10.895,45 TL',
+                        newPrice: '7.082,40 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000101_255-40-r20-tl-101v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '245/40 R20 TL 99V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '10.120,25 TL',
+                        newPrice: '6.578,40 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000102_245-40-r20-tl-99v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '235/40 R20 TL 96V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '9.624,65 TL',
+                        newPrice: '6.256,80 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000103_235-40-r20-tl-96v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '225/40 R20 TL 95V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '9.334,25 TL',
+                        newPrice: '6.068,40 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000104_225-40-r20-tl-95v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '215/40 R20 TL 95V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '8.308,25 TL',
+                        newPrice: '5.401,20 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000105_215-40-r20-tl-95v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    }
+                ]
+            },
+            'hafif-ticari': {
+                title: 'Hafif Ticari',
+                description: 'Hafif Ticari Araç Lastikleri her türlü sürüş koşulları için üretilmiş lastikler ve farklı araçlar için üretilen çok geniş ürün gamı ile Lastikleri keşfedin...',
+                filters: {
+                    marka: [
+                        { name: 'PETLAS', count: 65 },
+                        { name: 'DUNLOP', count: 23 }
+                    ],
+                    aracTipi: [
+                        { name: 'Hafif Ticari', count: 87 }
+                    ],
+                    mevsim: [
+                        { name: 'Yaz', count: 37 },
+                        { name: 'Kış', count: 51 }
+                    ],
+                    runFlat: [
+                        { name: 'Hayır', count: 87 }
+                    ],
+                    tabanGenisligi: [
+                        { name: '155', count: 6 },
+                        { name: '165', count: 1 },
+                        { name: '175', count: 2 },
+                        { name: '185', count: 10 },
+                        { name: '195', count: 21 },
+                        { name: '205', count: 19 },
+                        { name: '215', count: 11 },
+                        { name: '225', count: 14 },
+                        { name: '235', count: 2 },
+                        { name: '285', count: 1 }
+                    ],
+                    kesitOrani: [
+                        { name: '60', count: 4 },
+                        { name: '65', count: 25 },
+                        { name: '70', count: 20 },
+                        { name: '75', count: 20 }
+                    ],
+                    jantCapi: [
+                        { name: 'R16', count: 45 },
+                        { name: 'R15', count: 25 },
+                        { name: 'R14', count: 11 },
+                        { name: 'R13', count: 3 },
+                        { name: 'R12', count: 4 }
+                    ],
+                    hizSembolu: [
+                        { name: 'T (190 KM/S)', count: 15 },
+                        { name: 'S (180 KM/S)', count: 1 },
+                        { name: 'R (170 KM/S)', count: 61 },
+                        { name: 'P (150 KM/S)', count: 2 },
+                        { name: 'N (140 KM/S)', count: 6 }
+                    ],
+                    yukIndeksi: [
+                        { name: '90', count: 1 },
+                        { name: '99', count: 1 },
+                        { name: '102', count: 1 },
+                        { name: '103', count: 1 },
+                        { name: '104', count: 1 },
+                        { name: '106', count: 2 },
+                        { name: '107', count: 1 },
+                        { name: '112', count: 2 },
+                        { name: '128', count: 1 },
+                        { name: '83/81', count: 1 },
+                        { name: '85/83', count: 2 },
+                        { name: '88/86', count: 3 },
+                        { name: '89/87', count: 1 },
+                        { name: '99/97', count: 3 },
+                        { name: '101/99', count: 2 },
+                        { name: '102/100', count: 6 },
+                        { name: '104/102', count: 12 },
+                        { name: '106/104', count: 9 },
+                        { name: '107/105', count: 9 },
+                        { name: '109/107', count: 7 },
+                        { name: '110/108', count: 4 },
+                        { name: '112/110', count: 9 },
+                        { name: '113/111', count: 4 },
+                        { name: '115/113', count: 2 },
+                        { name: '116/114', count: 1 },
+                        { name: '118/116', count: 2 }
+                    ]
+                },
+                products: [
+                    {
+                        name: '225/75 R16 C TL 118/116R 8PR SP WINTER VAN 01 DUNLOP',
+                        oldPrice: '8.592,00 TL',
+                        newPrice: '6.444,00 TL',
+                        discount: 25,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000031_225-75-r16-c-tl-118-116r-8pr-sp-winter-van-01-dunlop.jpeg'
+                    },
+                    {
+                        name: '215/75 R16 C TL 113/111R 8PR SP WINTER VAN 01 DUNLOP',
+                        oldPrice: '7.452,00 TL',
+                        newPrice: '5.589,60 TL',
+                        discount: 25,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000032_215-75-r16-c-tl-113-111r-8pr-sp-winter-van-01-dunlop.jpeg'
+                    },
+                    {
+                        name: '205/75 R16 C TL 110/108R 8PR SP WINTER VAN 01 DUNLOP',
+                        oldPrice: '6.985,20 TL',
+                        newPrice: '5.239,20 TL',
+                        discount: 25,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000033_205-75-r16-c-tl-110-108r-8pr-sp-winter-van-01-dunlop.jpeg'
+                    },
+                    {
+                        name: '195/75 R16 C TL 107/105R 8PR SP WINTER VAN 01 DUNLOP',
+                        oldPrice: '6.331,20 TL',
+                        newPrice: '4.748,40 TL',
+                        discount: 25,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000034_195-75-r16-c-tl-107-105r-8pr-sp-winter-van-01-dunlop.jpeg'
+                    },
+                    {
+                        name: '185/75 R16 C TL 104/102R 8PR SP WINTER VAN 01 DUNLOP',
+                        oldPrice: '6.036,00 TL',
+                        newPrice: '4.527,60 TL',
+                        discount: 25,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000035_185-75-r16-c-tl-104-102r-8pr-sp-winter-van-01-dunlop.jpeg'
+                    },
+                    {
+                        name: '225/70 R15 C TL 112/110R 8PR SP WINTER VAN 01 DUNLOP',
+                        oldPrice: '7.052,40 TL',
+                        newPrice: '5.289,60 TL',
+                        discount: 25,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000036_225-70-r15-c-tl-112-110r-8pr-sp-winter-van-01-dunlop.jpeg'
+                    },
+                    {
+                        name: '195/70 R15 C TL 104/102R 8PR SP WINTER VAN 01 DUNLOP',
+                        oldPrice: '5.992,80 TL',
+                        newPrice: '4.495,20 TL',
+                        discount: 25,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000037_195-70-r15-c-tl-104-102r-8pr-sp-winter-van-01-dunlop.jpeg'
+                    },
+                    {
+                        name: '235/65 R16 C TL 115/113R 8PR SP WINTER VAN 01 DUNLOP',
+                        oldPrice: '8.086,80 TL',
+                        newPrice: '6.066,00 TL',
+                        discount: 25,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000038_235-65-r16-c-tl-115-113r-8pr-sp-winter-van-01-dunlop.jpeg'
+                    },
+                    {
+                        name: '225/65 R16 C TL 112/110R 8PR SP WINTER VAN 01 DUNLOP',
+                        oldPrice: '7.856,40 TL',
+                        newPrice: '5.893,20 TL',
+                        discount: 25,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000039_225-65-r16-c-tl-112-110r-8pr-sp-winter-van-01-dunlop.jpeg'
+                    },
+                    {
+                        name: '215/65 R16 C TL 109/107T 8PR SP WINTER VAN 01 DUNLOP',
+                        oldPrice: '6.967,20 TL',
+                        newPrice: '5.226,00 TL',
+                        discount: 25,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000040_215-65-r16-c-tl-109-107t-8pr-sp-winter-van-01-dunlop.jpeg'
+                    },
+                    {
+                        name: '205/65 R16 C TL 107/105T 8PR SP WINTER VAN 01 DUNLOP',
+                        oldPrice: '6.674,40 TL',
+                        newPrice: '5.006,40 TL',
+                        discount: 25,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000041_205-65-r16-c-tl-107-105t-8pr-sp-winter-van-01-dunlop.jpeg'
+                    },
+                    {
+                        name: '195/60 R16 C TL 99T 6PR SP WINTER VAN 01 DUNLOP',
+                        oldPrice: '5.938,80 TL',
+                        newPrice: '4.454,40 TL',
+                        discount: 25,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000042_195-60-r16-c-tl-99t-6pr-sp-winter-van-01-dunlop.jpeg'
+                    },
+                    {
+                        name: '195 R14 C TL 106/104R 8PR SP WINTER VAN 01 DUNLOP',
+                        oldPrice: '5.815,20 TL',
+                        newPrice: '4.362,00 TL',
+                        discount: 25,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000043_195-r14-c-tl-106-104r-8pr-sp-winter-van-01-dunlop.jpeg'
+                    },
+                    {
+                        name: '185 R14 C TL 102/100R 8PR SP WINTER VAN 01 DUNLOP',
+                        oldPrice: '5.474,40 TL',
+                        newPrice: '4.106,40 TL',
+                        discount: 25,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000044_185-r14-c-tl-102-100r-8pr-sp-winter-van-01-dunlop.jpeg'
+                    },
+                    {
+                        name: '205/65 R15 C TL 102/100T 8PR FULL POWER PT825 PLUS PETLAS',
+                        oldPrice: '5.746,78 TL',
+                        newPrice: '4.195,20 TL',
+                        discount: 27,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000045_205-65-r15-c-tl-102-100t-8pr-full-power-pt825-plus-petlas.jpeg'
+                    },
+                    {
+                        name: '225/70 R15 C TL 112/110R 8PR FULL GRIP PT925 PETLAS',
+                        oldPrice: '5.730,69 TL',
+                        newPrice: '4.011,60 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000046_225-70-r15-c-tl-112-110r-8pr-full-grip-pt925-petlas.jpeg'
+                    },
+                    {
+                        name: '225/70 R15 C TL 112/110R 8PR FULL POWER PT835 PETLAS',
+                        oldPrice: '5.974,78 TL',
+                        newPrice: '4.362,00 TL',
+                        discount: 27,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000047_225-70-r15-c-tl-112-110r-8pr-full-power-pt835-petlas.jpeg'
+                    },
+                    {
+                        name: '215/75 R16 C TL 113/111R 8PR FULL GRIP PT925 PETLAS',
+                        oldPrice: '6.730,69 TL',
+                        newPrice: '4.711,60 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000048_215-75-r16-c-tl-113-111r-8pr-full-grip-pt925-petlas.jpeg'
+                    },
+                    {
+                        name: '205/75 R16 C TL 110/108R 8PR FULL GRIP PT925 PETLAS',
+                        oldPrice: '6.330,69 TL',
+                        newPrice: '4.431,60 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000049_205-75-r16-c-tl-110-108r-8pr-full-grip-pt925-petlas.jpeg'
+                    },
+                    {
+                        name: '195/75 R16 C TL 107/105R 8PR FULL GRIP PT925 PETLAS',
+                        oldPrice: '5.930,69 TL',
+                        newPrice: '4.151,60 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000050_195-75-r16-c-tl-107-105r-8pr-full-grip-pt925-petlas.jpeg'
+                    },
+                    {
+                        name: '185/75 R16 C TL 104/102R 8PR FULL GRIP PT925 PETLAS',
+                        oldPrice: '5.530,69 TL',
+                        newPrice: '3.871,60 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000051_185-75-r16-c-tl-104-102r-8pr-full-grip-pt925-petlas.jpeg'
+                    },
+                    {
+                        name: '175/75 R16 C TL 101/99R 8PR FULL GRIP PT925 PETLAS',
+                        oldPrice: '5.130,69 TL',
+                        newPrice: '3.591,60 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000052_175-75-r16-c-tl-101-99r-8pr-full-grip-pt925-petlas.jpeg'
+                    },
+                    {
+                        name: '165/75 R16 C TL 98/96R 8PR FULL GRIP PT925 PETLAS',
+                        oldPrice: '4.730,69 TL',
+                        newPrice: '3.311,60 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000053_165-75-r16-c-tl-98-96r-8pr-full-grip-pt925-petlas.jpeg'
+                    },
+                    {
+                        name: '155/75 R16 C TL 95/93R 8PR FULL GRIP PT925 PETLAS',
+                        oldPrice: '4.330,69 TL',
+                        newPrice: '3.031,60 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000054_155-75-r16-c-tl-95-93r-8pr-full-grip-pt925-petlas.jpeg'
+                    },
+                    {
+                        name: '225/70 R15 C TL 112/110R 8PR FULL POWER PT835 PETLAS',
+                        oldPrice: '5.974,78 TL',
+                        newPrice: '4.362,00 TL',
+                        discount: 27,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000055_225-70-r15-c-tl-112-110r-8pr-full-power-pt835-petlas.jpeg'
+                    },
+                    {
+                        name: '215/70 R15 C TL 109/107R 8PR FULL POWER PT835 PETLAS',
+                        oldPrice: '5.574,78 TL',
+                        newPrice: '4.082,00 TL',
+                        discount: 27,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000056_215-70-r15-c-tl-109-107r-8pr-full-power-pt835-petlas.jpeg'
+                    },
+                    {
+                        name: '205/70 R15 C TL 106/104R 8PR FULL POWER PT835 PETLAS',
+                        oldPrice: '5.174,78 TL',
+                        newPrice: '3.802,00 TL',
+                        discount: 27,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000057_205-70-r15-c-tl-106-104r-8pr-full-power-pt835-petlas.jpeg'
+                    },
+                    {
+                        name: '195/70 R15 C TL 104/102R 8PR FULL POWER PT835 PETLAS',
+                        oldPrice: '4.774,78 TL',
+                        newPrice: '3.522,00 TL',
+                        discount: 27,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000058_195-70-r15-c-tl-104-102r-8pr-full-power-pt835-petlas.jpeg'
+                    },
+                    {
+                        name: '185/70 R15 C TL 101/99R 8PR FULL POWER PT835 PETLAS',
+                        oldPrice: '4.374,78 TL',
+                        newPrice: '3.242,00 TL',
+                        discount: 27,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000059_185-70-r15-c-tl-101-99r-8pr-full-power-pt835-petlas.jpeg'
+                    },
+                    {
+                        name: '175/70 R15 C TL 98/96R 8PR FULL POWER PT835 PETLAS',
+                        oldPrice: '3.974,78 TL',
+                        newPrice: '2.962,00 TL',
+                        discount: 27,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000060_175-70-r15-c-tl-98-96r-8pr-full-power-pt835-petlas.jpeg'
+                    },
+                    {
+                        name: '165/70 R15 C TL 95/93R 8PR FULL POWER PT835 PETLAS',
+                        oldPrice: '3.574,78 TL',
+                        newPrice: '2.682,00 TL',
+                        discount: 27,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000061_165-70-r15-c-tl-95-93r-8pr-full-power-pt835-petlas.jpeg'
+                    },
+                    {
+                        name: '155/70 R15 C TL 92/90R 8PR FULL POWER PT835 PETLAS',
+                        oldPrice: '3.174,78 TL',
+                        newPrice: '2.402,00 TL',
+                        discount: 27,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000062_155-70-r15-c-tl-92-90r-8pr-full-power-pt835-petlas.jpeg'
+                    }
+                ]
+            },
+            'suv4x': {
+                title: 'SUV/4x4',
+                description: 'SUV/4x4 Araç Lastikleri her türlü sürüş koşulları için üretilmiş lastikler ve farklı araçlar için üretilen çok geniş ürün gamı ile Lastikleri keşfedin...',
+                filters: {
+                    marka: [
+                        { name: 'PETLAS', count: 45 },
+                        { name: 'DUNLOP', count: 35 }
+                    ],
+                    aracTipi: [
+                        { name: 'SUV/4x4', count: 80 }
+                    ],
+                    mevsim: [
+                        { name: 'Yaz', count: 40 },
+                        { name: 'Kış', count: 40 }
+                    ],
+                    runFlat: [
+                        { name: 'Evet', count: 10 },
+                        { name: 'Hayır', count: 70 }
+                    ],
+                    tabanGenisligi: [
+                        { name: '205', count: 5 },
+                        { name: '215', count: 8 },
+                        { name: '225', count: 12 },
+                        { name: '235', count: 15 },
+                        { name: '245', count: 20 },
+                        { name: '255', count: 10 },
+                        { name: '265', count: 5 },
+                        { name: '275', count: 3 },
+                        { name: '285', count: 2 }
+                    ],
+                    kesitOrani: [
+                        { name: '45', count: 15 },
+                        { name: '50', count: 20 },
+                        { name: '55', count: 25 },
+                        { name: '60', count: 15 },
+                        { name: '65', count: 5 }
+                    ],
+                    jantCapi: [
+                        { name: 'R20', count: 5 },
+                        { name: 'R19', count: 15 },
+                        { name: 'R18', count: 25 },
+                        { name: 'R17', count: 20 },
+                        { name: 'R16', count: 15 }
+                    ],
+                    hizSembolu: [
+                        { name: 'Y (300 KM/S)', count: 5 },
+                        { name: 'W (270 KM/S)', count: 15 },
+                        { name: 'V (240 KM/S)', count: 25 },
+                        { name: 'H (210 KM/S)', count: 20 },
+                        { name: 'T (190 KM/S)', count: 15 }
+                    ],
+                    yukIndeksi: [
+                        { name: '95', count: 10 },
+                        { name: '97', count: 15 },
+                        { name: '99', count: 20 },
+                        { name: '101', count: 15 },
+                        { name: '103', count: 10 },
+                        { name: '105', count: 5 },
+                        { name: '107', count: 5 }
+                    ]
+                },
+                products: [
+                    {
+                        name: '225/60 R17 TL 103V XL EUROWINTER HS02 PRO FALKEN',
+                        oldPrice: '8.289,09 TL',
+                        newPrice: '5.803,20 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000063_225-60-r17-tl-103v-xl-eurowinter-hs02-pro-falken.jpeg'
+                    },
+                    {
+                        name: '225/65 R17 TL 102H EXPLERO H/T PT431 PETLAS',
+                        oldPrice: '6.136,45 TL',
+                        newPrice: '4.173,60 TL',
+                        discount: 32,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000064_225-65-r17-tl-102h-explero-h-t-pt431-petlas.jpeg'
+                    },
+                    {
+                        name: '255/60 R18 TL 112V REINF. EXPLERO A/S PT411 PETLAS',
+                        oldPrice: '7.004,05 TL',
+                        newPrice: '4.762,80 TL',
+                        discount: 32,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000065_255-60-r18-tl-112v-reinf-explero-a-s-pt411-petlas.jpeg'
+                    },
+                    {
+                        name: '225/65 R17 TL 102H SP WINTER SPORT 500 DUNLOP',
+                        oldPrice: '8.080,29 TL',
+                        newPrice: '5.656,80 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000066_225-65-r17-tl-102h-sp-winter-sport-500-dunlop.jpeg'
+                    },
+                    {
+                        name: '225/60 R17 TL 99H SP WINTER SPORT 500 DUNLOP',
+                        oldPrice: '8.854,29 TL',
+                        newPrice: '6.198,00 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000067_225-60-r17-tl-99h-sp-winter-sport-500-dunlop.jpeg'
+                    },
+                    {
+                        name: '215/65 R16 TL 98H SP WINTER SPORT 500 DUNLOP',
+                        oldPrice: '6.304,29 TL',
+                        newPrice: '4.413,60 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000068_215-65-r16-tl-98h-sp-winter-sport-500-dunlop.jpeg'
+                    },
+                    {
+                        name: '275/40 RF20 TL 106Y REINF. P-RFT EXPLERO H/T PT431 PETLAS',
+                        oldPrice: '10.536,85 TL',
+                        newPrice: '7.165,20 TL',
+                        discount: 32,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000069_275-40-rf20-tl-106y-reinf-p-rft-explero-h-t-pt431-petlas.jpeg'
+                    },
+                    {
+                        name: '215/65 R16 TL 98H EUROALL SEASON AS210 FALKEN',
+                        oldPrice: '5.520,69 TL',
+                        newPrice: '3.865,20 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000070_215-65-r16-tl-98h-euroall-season-as210-falken.jpeg'
+                    },
+                    {
+                        name: '215/65 R17 TL 103V XL EUROALL SEASON AS210 FALKEN',
+                        oldPrice: '6.348,69 TL',
+                        newPrice: '4.444,80 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000071_215-65-r17-tl-103v-xl-euroall-season-as210-falken.jpeg'
+                    },
+                    {
+                        name: '215/60 R17 TL 100V XL EUROALL SEASON AS210 FALKEN',
+                        oldPrice: '6.162,69 TL',
+                        newPrice: '4.314,00 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000072_215-60-r17-tl-100v-xl-euroall-season-as210-falken.jpeg'
+                    },
+                    {
+                        name: '225/65 R17 TL 106V XL EUROALL SEASON AS210 FALKEN',
+                        oldPrice: '6.435,09 TL',
+                        newPrice: '4.504,80 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000073_225-65-r17-tl-106v-xl-euroall-season-as210-falken.jpeg'
+                    },
+                    {
+                        name: '225/60 R17 TL 103V XL EUROALL SEASON AS210 FALKEN',
+                        oldPrice: '7.062,69 TL',
+                        newPrice: '4.944,00 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000074_225-60-r17-tl-103v-xl-euroall-season-as210-falken.jpeg'
+                    },
+                    {
+                        name: '215/55 R18 TL 99V XL EUROALL SEASON AS210 FALKEN',
+                        oldPrice: '8.608,29 TL',
+                        newPrice: '6.026,40 TL',
+                        discount: 30,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000075_215-55-r18-tl-99v-xl-euroall-season-as210-falken.jpeg'
+                    },
+                    {
+                        name: '245/70 R16 TL 107T WILDPEAK A/T AT01 FALKEN',
+                        oldPrice: '8.565,68 TL',
+                        newPrice: '6.596,40 TL',
+                        discount: 23,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000076_245-70-r16-tl-107t-wildpeak-a-t-at01-falken.jpeg'
+                    },
+                    {
+                        name: '265/65 R17 TL 116S REINF. EXPLERO A/T PT421 PETLAS',
+                        oldPrice: '6.939,25 TL',
+                        newPrice: '4.719,60 TL',
+                        discount: 32,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000077_265-65-r17-tl-116s-reinf-explero-a-t-pt421-petlas.jpeg'
+                    },
+                    {
+                        name: '235/70 R16 TL 106H EXPLERO A/S PT411 PETLAS',
+                        oldPrice: '5.247,25 TL',
+                        newPrice: '3.568,80 TL',
+                        discount: 32,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000078_235-70-r16-tl-106h-explero-a-s-pt411-petlas.jpeg'
+                    },
+                    {
+                        name: '215/70 R16 TL 104H REINF. EXPLERO WINTER W671 PETLAS',
+                        oldPrice: '5.496,65 TL',
+                        newPrice: '3.573,60 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000079_215-70-r16-tl-104h-reinf-explero-winter-w671-petlas.jpeg'
+                    },
+                    {
+                        name: '215/70 R16 TL 100H EXPLERO A/S PT411 PETLAS',
+                        oldPrice: '4.781,65 TL',
+                        newPrice: '3.252,00 TL',
+                        discount: 32,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000080_215-70-r16-tl-100h-explero-a-s-pt411-petlas.jpeg'
+                    },
+                    {
+                        name: '265/70 R15 TL 116T REINF. (M+S) EXPLERO A/T PT421 PETLAS',
+                        oldPrice: '5.928,85 TL',
+                        newPrice: '4.032,00 TL',
+                        discount: 32,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000081_265-70-r15-tl-116t-reinf-m-s-explero-a-t-pt421-petlas.jpeg'
+                    },
+                    {
+                        name: '235/55 R19 TL 101V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '11.350,25 TL',
+                        newPrice: '7.378,80 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000082_235-55-r19-tl-101v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '255/55 R18 TL 109V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '10.895,45 TL',
+                        newPrice: '7.082,40 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000083_255-55-r18-tl-109v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '225/65 R17 TL 102H REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '8.308,25 TL',
+                        newPrice: '5.401,20 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000084_225-65-r17-tl-102h-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '245/65 R17 TL 111H REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '9.624,65 TL',
+                        newPrice: '6.256,80 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000085_245-65-r17-tl-111h-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '235/60 R18 TL 107V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '10.120,25 TL',
+                        newPrice: '6.578,40 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000086_235-60-r18-tl-107v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '265/60 R18 TL 110V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '11.350,25 TL',
+                        newPrice: '7.378,80 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000087_265-60-r18-tl-110v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '255/55 R19 TL 111V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '12.350,25 TL',
+                        newPrice: '8.027,80 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000088_255-55-r19-tl-111v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '265/50 R20 TL 107V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '13.038,69 TL',
+                        newPrice: '8.475,20 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000089_265-50-r20-tl-107v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '235/55 R20 TL 102V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '11.350,25 TL',
+                        newPrice: '7.378,80 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000090_235-55-r20-tl-102v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '255/50 R20 TL 109V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '12.350,25 TL',
+                        newPrice: '8.027,80 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000091_255-50-r20-tl-109v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '245/50 R20 TL 102V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '11.350,25 TL',
+                        newPrice: '7.378,80 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000092_245-50-r20-tl-102v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '235/50 R20 TL 101V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '10.895,45 TL',
+                        newPrice: '7.082,40 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000093_235-50-r20-tl-101v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '225/55 R20 TL 102V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '10.895,45 TL',
+                        newPrice: '7.082,40 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000094_225-55-r20-tl-102v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '215/55 R20 TL 99V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '9.624,65 TL',
+                        newPrice: '6.256,80 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000095_215-55-r20-tl-99v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '255/45 R20 TL 101V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '11.350,25 TL',
+                        newPrice: '7.378,80 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000096_255-45-r20-tl-101v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '245/45 R20 TL 99V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '10.895,45 TL',
+                        newPrice: '7.082,40 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000097_245-45-r20-tl-99v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '235/45 R20 TL 98V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '10.120,25 TL',
+                        newPrice: '6.578,40 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000098_235-45-r20-tl-98v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '225/45 R20 TL 95V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '9.624,65 TL',
+                        newPrice: '6.256,80 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000099_225-45-r20-tl-95v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '215/45 R20 TL 95V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '9.334,25 TL',
+                        newPrice: '6.068,40 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000100_215-45-r20-tl-95v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '255/40 R20 TL 101V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '10.895,45 TL',
+                        newPrice: '7.082,40 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000101_255-40-r20-tl-101v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '245/40 R20 TL 99V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '10.120,25 TL',
+                        newPrice: '6.578,40 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000102_245-40-r20-tl-99v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '235/40 R20 TL 96V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '9.624,65 TL',
+                        newPrice: '6.256,80 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000103_235-40-r20-tl-96v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '225/40 R20 TL 95V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '9.334,25 TL',
+                        newPrice: '6.068,40 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000104_225-40-r20-tl-95v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    },
+                    {
+                        name: '215/40 R20 TL 95V REINF. SNOWMASTER 2 SPORT PETLAS',
+                        oldPrice: '8.308,25 TL',
+                        newPrice: '5.401,20 TL',
+                        discount: 35,
+                        image: 'https://www.akolastik.com/Content/Images/Thumbs/0000105_215-40-r20-tl-95v-reinf-snowmaster-2-sport-petlas.jpeg'
+                    }
+                ]
+            }
+        };
+
+        // URL'den kategori parametresini al
+        const urlParams = new URLSearchParams(window.location.search);
+        const category = urlParams.get('tip') || 'binek';
+
+        // Aktif filtreleri tutacak nesne
+        let activeFilters = {};
+
+        // Kategori verilerini yükle
+        function loadCategory(category) {
+            const data = categoryData[category];
+            if (!data) return;
+
+            // Ürün sayılarını hesapla
+            const productCounts = {
+                marka: {},
+                aracTipi: {},
+                mevsim: {},
+                runFlat: {},
+                tabanGenisligi: {},
+                kesitOrani: {},
+                jantCapi: {},
+                hizSembolu: {},
+                yukIndeksi: {}
+            };
+
+            // Her ürün için filtreleri say
+            data.products.forEach(product => {
+                // Marka
+                if (product.name.includes('PETLAS')) productCounts.marka['PETLAS'] = (productCounts.marka['PETLAS'] || 0) + 1;
+                if (product.name.includes('DUNLOP')) productCounts.marka['DUNLOP'] = (productCounts.marka['DUNLOP'] || 0) + 1;
+                if (product.name.includes('FALKEN')) productCounts.marka['FALKEN'] = (productCounts.marka['FALKEN'] || 0) + 1;
+
+                // Araç Tipi
+                if (product.name.includes('Binek')) productCounts.aracTipi['Binek'] = (productCounts.aracTipi['Binek'] || 0) + 1;
+                if (product.name.includes('SUV/4X4')) productCounts.aracTipi['SUV/4X4'] = (productCounts.aracTipi['SUV/4X4'] || 0) + 1;
+                if (product.name.includes('Hafif Ticari')) productCounts.aracTipi['Hafif Ticari'] = (productCounts.aracTipi['Hafif Ticari'] || 0) + 1;
+
+                // Mevsim
+                if (product.name.includes('WINTER')) productCounts.mevsim['Kış'] = (productCounts.mevsim['Kış'] || 0) + 1;
+                if (product.name.includes('ALL SEASON')) productCounts.mevsim['4 Mevsim'] = (productCounts.mevsim['4 Mevsim'] || 0) + 1;
+                if (!product.name.includes('WINTER') && !product.name.includes('ALL SEASON')) productCounts.mevsim['Yaz'] = (productCounts.mevsim['Yaz'] || 0) + 1;
+
+                // Run Flat
+                if (product.name.includes('RF')) productCounts.runFlat['Evet'] = (productCounts.runFlat['Evet'] || 0) + 1;
+                else productCounts.runFlat['Hayır'] = (productCounts.runFlat['Hayır'] || 0) + 1;
+
+                // Taban Genişliği
+                const tabanMatch = product.name.match(/(\d+)\//);
+                if (tabanMatch) {
+                    const taban = tabanMatch[1];
+                    productCounts.tabanGenisligi[taban] = (productCounts.tabanGenisligi[taban] || 0) + 1;
+                }
+
+                // Kesit Oranı
+                const kesitMatch = product.name.match(/\/(\d+)\s/);
+                if (kesitMatch) {
+                    const kesit = kesitMatch[1];
+                    productCounts.kesitOrani[kesit] = (productCounts.kesitOrani[kesit] || 0) + 1;
+                }
+
+                // Jant Çapı
+                const jantMatch = product.name.match(/R(\d+)\s/);
+                if (jantMatch) {
+                    const jant = 'R' + jantMatch[1];
+                    productCounts.jantCapi[jant] = (productCounts.jantCapi[jant] || 0) + 1;
+                }
+
+                // Hız Sembolü
+                const hizMatch = product.name.match(/\s([A-Z])\s/);
+                if (hizMatch) {
+                    const hiz = hizMatch[1];
+                    productCounts.hizSembolu[hiz] = (productCounts.hizSembolu[hiz] || 0) + 1;
+                }
+
+                // Yük İndeksi
+                const yukMatch = product.name.match(/\s(\d+)[A-Z]/);
+                if (yukMatch) {
+                    const yuk = yukMatch[1];
+                    productCounts.yukIndeksi[yuk] = (productCounts.yukIndeksi[yuk] || 0) + 1;
+                }
+            });
+
+            // Filtreleri güncelle
+            data.filters = {
+                marka: Object.entries(productCounts.marka).map(([name, count]) => ({ name, count })),
+                aracTipi: Object.entries(productCounts.aracTipi).map(([name, count]) => ({ name, count })),
+                mevsim: Object.entries(productCounts.mevsim).map(([name, count]) => ({ name, count })),
+                runFlat: Object.entries(productCounts.runFlat).map(([name, count]) => ({ name, count })),
+                tabanGenisligi: Object.entries(productCounts.tabanGenisligi).map(([name, count]) => ({ name, count })),
+                kesitOrani: Object.entries(productCounts.kesitOrani).map(([name, count]) => ({ name, count })),
+                jantCapi: Object.entries(productCounts.jantCapi).map(([name, count]) => ({ name, count })),
+                hizSembolu: Object.entries(productCounts.hizSembolu).map(([name, count]) => ({ name, count })),
+                yukIndeksi: Object.entries(productCounts.yukIndeksi).map(([name, count]) => ({ name, count }))
+            };
+
+            // Başlık ve açıklama
+            document.getElementById('category-header').innerHTML = `
+                <h1 style="font-size:1.8rem;color:#333;margin-bottom:12px;">${data.title}</h1>
+                <p style="color:#666;line-height:1.5;">${data.description}</p>
+            `;
+
+            // Filtreler
+            const filtersHtml = `
+                <h3 style="font-size:1.1rem;color:#01519A;margin-bottom:18px;">Filtrele</h3>
+                ${Object.entries(data.filters).map(([key, values]) => `
+                    <div class="filter-group" style="margin-bottom:20px;">
+                        <label style="display:block;font-weight:600;margin-bottom:12px;color:#333;font-size:0.95rem;">${key.charAt(0).toUpperCase() + key.slice(1)}</label>
+                        <div class="filter-options" style="max-height:200px;overflow-y:auto;">
+                            ${values.map(v => `
+                                <div class="filter-option" style="margin-bottom:8px;display:flex;align-items:center;">
+                                    <input type="checkbox" id="${key}-${v.name}" value="${v.name}" 
+                                        ${activeFilters[key]?.includes(v.name) ? 'checked' : ''}
+                                        onchange="updateFilters('${key}', '${v.name}', this.checked)"
+                                        style="margin-right:8px;width:16px;height:16px;cursor:pointer;">
+                                    <label for="${key}-${v.name}" style="color:#666;font-size:0.9rem;cursor:pointer;flex:1;">
+                                        ${v.name} <span style="color:#999;font-size:0.85rem;">(${v.count})</span>
+                                    </label>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `).join('')}
+                <button onclick="applyFilters()" style="width:100%;margin-top:10px;background:#01519A;color:#fff;border:none;padding:10px 0;border-radius:4px;font-weight:600;cursor:pointer;font-size:0.95rem;">Filtrele</button>
+            `;
+            document.getElementById('filters').innerHTML = filtersHtml;
+
+            // Ürünleri yükle
+            loadProducts(data.products);
+        }
+
+        // Filtreleri güncelle
+        function updateFilters(filterType, value, checked) {
+            if (!activeFilters[filterType]) {
+                activeFilters[filterType] = [];
+            }
+
+            if (checked) {
+                activeFilters[filterType].push(value);
+            } else {
+                activeFilters[filterType] = activeFilters[filterType].filter(v => v !== value);
+            }
+        }
+
+        // Filtreleri uygula
+        function applyFilters() {
+            const data = categoryData[category];
+            if (!data) return;
+
+            let filteredProducts = data.products;
+
+            // Her filtre tipi için filtreleme yap
+            Object.entries(activeFilters).forEach(([filterType, values]) => {
+                if (values.length > 0) {
+                    filteredProducts = filteredProducts.filter(product => {
+                        // Ürün adından filtre değerlerini kontrol et
+                        return values.some(value => {
+                            if (filterType === 'marka') {
+                                return product.name.includes(value);
+                            } else if (filterType === 'aracTipi') {
+                                return product.name.includes(value);
+                            } else if (filterType === 'mevsim') {
+                                return product.name.includes(value);
+                            } else if (filterType === 'runFlat') {
+                                return value === 'Evet' ? product.name.includes('RF') : !product.name.includes('RF');
+                            } else if (filterType === 'tabanGenisligi') {
+                                return product.name.startsWith(value + '/');
+                            } else if (filterType === 'kesitOrani') {
+                                return product.name.includes('/' + value + ' ');
+                            } else if (filterType === 'jantCapi') {
+                                return product.name.includes(' ' + value + ' ');
+                            } else if (filterType === 'hizSembolu') {
+                                return product.name.includes(value.split(' ')[0]);
+                            } else if (filterType === 'yukIndeksi') {
+                                return product.name.includes(value);
+                            }
+                            return true;
+                        });
+                    });
+                }
+            });
+
+            // Filtrelenmiş ürünleri göster
+            loadProducts(filteredProducts);
+        }
+
+        // Ürünleri yükle
+        function loadProducts(products) {
+            const productGrid = document.getElementById('product-grid');
+            productGrid.innerHTML = products.map((product, idx) => `
+                <div class="product-card" style="cursor:pointer;" onclick="window.location.href='urun-detay.html?id=${idx+1}'">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <div class="product-price">
+                            <span class="new-price">${product.newPrice}</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="event.stopPropagation();">Sepete Ekle</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Sayfa yüklendiğinde kategoriyi yükle
+        loadCategory(category);
+    </script>
+</body>
+</html> 

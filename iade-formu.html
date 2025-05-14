@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arıza / İade Başvurusu</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background: #f7f7f7; margin: 0; font-family: 'Segoe UI', Arial, sans-serif; }
+        .logo-area { text-align: center; margin-top: 32px; margin-bottom: 12px; }
+        .logo-area img { height: 70px; }
+        .return-form-container {
+            max-width: 520px;
+            margin: 24px auto 48px auto;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 4px 24px rgba(1,81,154,0.13);
+            padding: 36px 32px 32px 32px;
+            border: 1px solid #e0e0e0;
+            position: relative;
+        }
+        .return-form-container h1 {
+            text-align: center;
+            color: #222;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 32px;
+        }
+        .return-form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 22px;
+        }
+        .return-form-group label {
+            flex: 0 0 110px;
+            font-size: 1.08rem;
+            color: #222;
+            font-weight: 500;
+        }
+        .return-form-group input {
+            flex: 1;
+            padding: 12px 14px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1.08rem;
+            margin-left: 12px;
+            background: #fafbfc;
+            transition: border 0.2s;
+        }
+        .return-form-group input:focus {
+            border-color: #01519A;
+        }
+        .return-form-group input.error {
+            border-color: #e31e24;
+        }
+        .error-message {
+            color: #e31e24;
+            font-size: 0.98rem;
+            margin-left: 122px;
+            margin-top: -16px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .required-star { color: #e31e24; margin-left: 4px; }
+        .recaptcha-placeholder {
+            margin-left: 122px;
+            margin-bottom: 24px;
+            background: #fafbfc;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 18px 18px 10px 18px;
+            width: 320px;
+            max-width: 100%;
+            display: flex;
+            align-items: center;
+            position: relative;
+            transition: opacity 0.4s, height 0.4s;
+        }
+        .recaptcha-checkbox {
+            width: 22px; height: 22px; border: 2px solid #888; border-radius: 4px; margin-right: 12px; background: #fff; display: flex; align-items: center; justify-content: center; cursor:pointer; position:relative; }
+        .recaptcha-checkbox.checked { background: #01519A; border-color: #01519A; }
+        .recaptcha-checkbox.checked:after { content: '\2713'; color: #fff; font-size: 1.1rem; }
+        .recaptcha-label { font-size: 1.08rem; color: #222; }
+        .recaptcha-logo { margin-left: auto; }
+        .recaptcha-spinner {
+            border: 3px solid #e0e0e0;
+            border-top: 3px solid #01519A;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            animation: spin 0.7s linear infinite;
+            margin-right: 12px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .recaptcha-verified {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #e6f9e7;
+            border: 1px solid #b6e2c7;
+            border-radius: 6px;
+            padding: 14px 18px;
+            margin-left: 122px;
+            margin-bottom: 24px;
+            color: #1a7f37;
+            font-weight: 600;
+            font-size: 1.08rem;
+            min-height: 48px;
+            max-width: 320px;
+            box-sizing: border-box;
+            animation: fadeIn 0.5s;
+        }
+        .recaptcha-verified .fa-check-circle {
+            color: #1a7f37;
+            font-size: 1.5rem;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .form-actions {
+            display: flex;
+            gap: 18px;
+            margin-top: 18px;
+        }
+        .form-actions button {
+            flex: 1;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 14px 0;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .form-actions .back-btn {
+            background: #e0e0e0;
+            color: #222;
+        }
+        .form-actions .submit-btn {
+            background: #01519A;
+            color: #fff;
+        }
+        .form-actions .submit-btn:hover {
+            background: #e31e24;
+        }
+        .success-message {
+            background: #e6f9e7;
+            color: #1a7f37;
+            border: 1px solid #b6e2c7;
+            border-radius: 8px;
+            padding: 18px 16px;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+        @media (max-width: 600px) {
+            .return-form-container { padding: 18px 4px; }
+            .return-form-group { flex-direction: column; align-items: stretch; }
+            .return-form-group label { margin-bottom: 6px; }
+            .return-form-group input { margin-left: 0; }
+            .recaptcha-placeholder, .recaptcha-verified { margin-left: 0; width: 100%; max-width: 100%; }
+            .error-message { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-area">
+        <img src="https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/8df02ac1b8e75c991945f0ac5e25d1a8" alt="Emir Lastik Logo">
+    </div>
+    <div class="return-form-container">
+        <h1>Arıza / İade Başvurusu</h1>
+        <form id="returnForm" autocomplete="off">
+            <div class="return-form-group">
+                <label for="email">Email <span class="required-star">*</span></label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <span class="error-message" id="emailError" style="display:none;"></span>
+            <div class="return-form-group">
+                <label for="orderNo">Sipariş No <span class="required-star">*</span></label>
+                <input type="text" id="orderNo" name="orderNo" required>
+            </div>
+            <span class="error-message" id="orderNoError" style="display:none;"></span>
+            <div class="recaptcha-placeholder" id="recaptchaBox">
+                <div class="recaptcha-checkbox" id="recaptchaCheck"></div>
+                <span class="recaptcha-label">Ben robot değilim</span>
+                <span class="recaptcha-logo">
+                    <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" style="height:32px;vertical-align:middle;">
+                </span>
+            </div>
+            <div class="recaptcha-verified" id="recaptchaVerified" style="display:none;">
+                <i class="fas fa-check-circle"></i> Doğrulandı
+            </div>
+            <span class="error-message" id="recaptchaError" style="display:none;"></span>
+            <div class="form-actions">
+                <button type="button" class="back-btn" onclick="window.history.back()">Geri</button>
+                <button type="submit" class="submit-btn">Sipariş Bul</button>
+            </div>
+            <div id="successMsg" class="success-message" style="display:none;">Başvurunuz başarıyla alındı. Sipariş bilgileriniz kontrol ediliyor.</div>
+        </form>
+    </div>
+    <script>
+    // Modern form validation and fake reCAPTCHA
+    const form = document.getElementById('returnForm');
+    const email = document.getElementById('email');
+    const orderNo = document.getElementById('orderNo');
+    const recaptchaCheck = document.getElementById('recaptchaCheck');
+    const recaptchaBox = document.getElementById('recaptchaBox');
+    const recaptchaVerified = document.getElementById('recaptchaVerified');
+    const emailError = document.getElementById('emailError');
+    const orderNoError = document.getElementById('orderNoError');
+    const recaptchaError = document.getElementById('recaptchaError');
+    const successMsg = document.getElementById('successMsg');
+    let recaptchaChecked = false;
+    let recaptchaAnimating = false;
+
+    recaptchaCheck.addEventListener('click', function() {
+        if (recaptchaChecked || recaptchaAnimating) return;
+        recaptchaAnimating = true;
+        // Show spinner
+        recaptchaCheck.style.display = 'none';
+        const spinner = document.createElement('div');
+        spinner.className = 'recaptcha-spinner';
+        recaptchaBox.insertBefore(spinner, recaptchaBox.children[0]);
+        setTimeout(() => {
+            spinner.remove();
+            recaptchaBox.style.display = 'none';
+            recaptchaVerified.style.display = 'flex';
+            recaptchaChecked = true;
+            recaptchaAnimating = false;
+        }, 1000);
+    });
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        let valid = true;
+        // Email validation
+        if (!email.value || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)) {
+            email.classList.add('error');
+            emailError.textContent = 'Geçerli bir email adresi giriniz.';
+            emailError.style.display = 'block';
+            valid = false;
+        } else {
+            email.classList.remove('error');
+            emailError.style.display = 'none';
+        }
+        // Order No validation
+        if (!orderNo.value || orderNo.value.length < 3) {
+            orderNo.classList.add('error');
+            orderNoError.textContent = 'Sipariş numarası en az 3 karakter olmalı.';
+            orderNoError.style.display = 'block';
+            valid = false;
+        } else {
+            orderNo.classList.remove('error');
+            orderNoError.style.display = 'none';
+        }
+        // Recaptcha validation
+        if (!recaptchaChecked) {
+            recaptchaError.textContent = 'Lütfen reCAPTCHA kutusunu işaretleyin.';
+            recaptchaError.style.display = 'block';
+            valid = false;
+        } else {
+            recaptchaError.style.display = 'none';
+        }
+        if (valid) {
+            successMsg.style.display = 'block';
+            setTimeout(() => { successMsg.style.display = 'none'; form.reset(); recaptchaVerified.style.display = 'none'; recaptchaBox.style.display = 'flex'; recaptchaCheck.style.display = 'flex'; recaptchaChecked = false; }, 3500);
+        }
+    });
+    </script>
+</body>
+</html> 

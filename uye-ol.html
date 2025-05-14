@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yeni Üyelik - Emir Lastik</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .register-card {
+            max-width: 520px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 16px rgba(1,81,154,0.08);
+            padding: 32px 28px 24px 28px;
+        }
+        .register-card h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 28px;
+            color: #222;
+        }
+        .register-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .register-form label {
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        .register-form input[type="text"],
+        .register-form input[type="email"],
+        .register-form input[type="password"] {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+        .register-form .row {
+            display: flex;
+            gap: 16px;
+        }
+        .register-form .row > div {
+            flex: 1;
+        }
+        .register-form .gender-group {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+        .register-form .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 14px;
+        }
+        .register-form .actions {
+            display: flex;
+            gap: 16px;
+            margin-top: 18px;
+        }
+        .register-form .actions button {
+            flex: 1;
+            padding: 12px 0;
+            font-size: 1rem;
+            border-radius: 6px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .register-form .actions .cancel {
+            background: #eee;
+            color: #222;
+        }
+        .register-form .actions .submit {
+            background: #01519A;
+            color: #fff;
+        }
+        .register-form .recaptcha {
+            margin: 18px 0 0 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .register-form .recaptcha label {
+            margin: 0;
+        }
+        .register-form .required {
+            color: #e31e24;
+            margin-left: 2px;
+        }
+        .back-home-btn {
+            position: fixed;
+            top: 24px;
+            right: 32px;
+            z-index: 1000;
+            background: #01519A;
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(1,81,154,0.08);
+            transition: background 0.2s, color 0.2s;
+            font-size: 15px;
+        }
+        .back-home-btn:hover {
+            background: #e31e24;
+            color: #fff;
+        }
+        @media (max-width: 600px) {
+            .back-home-btn {
+                top: 10px;
+                right: 10px;
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html"><img src="images/logo.png" alt="Emir Lastik Logo" style="height:50px;"></a>
+        </div>
+    </header>
+    <a href="index.html" class="back-home-btn">Ana Sayfaya Dön</a>
+    <main>
+        <div class="register-card">
+            <h1>Yeni Üyelik</h1>
+            <form class="register-form">
+                <div class="row">
+                    <div>
+                        <label for="firstName">Adı <span class="required">*</span></label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div>
+                        <label for="lastName">Soyadı <span class="required">*</span></label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                <label for="email">Email <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required>
+                <div class="row">
+                    <div>
+                        <label for="password">Şifre <span class="required">*</span></label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div>
+                        <label for="password2">Şifre Tekrar <span class="required">*</span></label>
+                        <input type="password" id="password2" name="password2" required>
+                    </div>
+                </div>
+                <label>Cinsiyet</label>
+                <div class="gender-group">
+                    <label><input type="radio" name="gender" value="Erkek"> Erkek</label>
+                    <label><input type="radio" name="gender" value="Kadın"> Kadın</label>
+                    <label><input type="radio" name="gender" value="Belirtmek istemiyorum"> Belirtmek istemiyorum</label>
+                </div>
+                <label for="phone">Cep Telefonu <span class="required">*</span></label>
+                <input type="text" id="phone" name="phone" placeholder="(5XX) XXX XX XX" required>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="kvkk-iletisim">
+                    <label for="kvkk-iletisim">Aydınlatma Metninde belirtilen ilkeler nezdinde Elektronik Ticaret İletisi almak istiyorum.</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="sozlesme" required>
+                    <label for="sozlesme"> <a href="#" target="_blank">Üyelik sözleşmesini kabul ediyorum.</a></label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="kvkk" required>
+                    <label for="kvkk"> <a href="#" target="_blank">Kişisel verilerin işlenmesine ilişkin Aydınlatma Metnini okudum.</a></label>
+                </div>
+                <div class="recaptcha">
+                    <input type="checkbox" id="not-robot">
+                    <label for="not-robot">Ben robot değilim</label>
+                    <div style="margin-left:16px;">
+                        <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" style="height:32px;vertical-align:middle;">
+                        <span style="font-size:12px;color:#888;">reCAPTCHA<br>Gizlilik - Şartlar</span>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button type="button" class="cancel" onclick="window.location.href='index.html'">İptal</button>
+                    <button type="submit" class="submit">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html> 

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kargom Nerede? - EMR GRUP</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-contact">
+                    <span><i class="fas fa-envelope"></i> satis@emirlastik.com</span>
+                    <span><i class="fas fa-phone"></i> 0 850 285 63 85</span>
+                </div>
+                <div class="header-actions">
+                    <a href="giris.html"><i class="fas fa-user"></i> Giriş Yap</a> |
+                    <a href="uye-ol.html">Üye Ol</a> |
+                    <a href="sepet.html">Sepet <span class="cart-count">0</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html"><img src="https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/8df02ac1b8e75c991945f0ac5e25d1a8" alt="Emir Lastik Logo" style="height: 54px;"></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <a href="index.html" class="back-home-btn">Ana Sayfaya Dön</a>
+    <main>
+        <div class="container">
+            <div class="cargo-track-row" style="display: flex; gap: 32px; margin: 32px 0 48px 0; align-items: flex-start; flex-wrap: wrap;">
+                <!-- Sol kutu: Araç Tipleri -->
+                <div class="cargo-types-box" style="background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 24px 28px; min-width: 220px; max-width: 320px; flex: 1 1 220px; box-shadow: 0 2px 8px rgba(1,81,154,0.06);">
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 18px; display: flex; align-items: center; gap: 8px;"><i class="fas fa-car"></i> Binek</li>
+                        <li style="margin-bottom: 18px; display: flex; align-items: center; gap: 8px;"><i class="fas fa-shuttle-van"></i> Hafif Ticari</li>
+                        <li style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-truck-monster"></i> SUV/4x4</li>
+                    </ul>
+                </div>
+                <!-- Sağ kutu: Kargo Takip Formu -->
+                <div class="cargo-track-box" style="background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 32px 36px; min-width: 320px; flex: 2 1 420px; box-shadow: 0 2px 8px rgba(1,81,154,0.06);">
+                    <h2 style="color: #222; font-size: 1.6rem; margin-bottom: 24px; font-weight: 700;">Kargo Takibi</h2>
+                    <form class="cargo-track-form" style="display: flex; flex-wrap: wrap; gap: 18px 24px; align-items: flex-end;">
+                        <div style="flex: 1 1 220px; min-width: 180px; display: flex; flex-direction: column; gap: 6px;">
+                            <label for="cargoNo" style="font-weight: 500; color: #222;">Kargo No</label>
+                            <input type="text" id="cargoNo" name="cargoNo" placeholder="Kargo Takip Numaranız" required style="padding: 10px 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px;">
+                        </div>
+                        <div style="flex: 1 1 220px; min-width: 180px; display: flex; flex-direction: column; gap: 6px;">
+                            <label for="cargoFirm" style="font-weight: 500; color: #222;">Kargo Firması</label>
+                            <select id="cargoFirm" name="cargoFirm" required style="padding: 10px 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px;">
+                                <option value="">Yurtiçi Kargo | Lastiğinizi Kargonuz Ulaşınca Seçmi</option>
+                                <option value="yurtici">Yurtiçi Kargo</option>
+                                <option value="aras">Aras Kargo</option>
+                                <option value="mng">MNG Kargo</option>
+                                <option value="ptt">PTT Kargo</option>
+                            </select>
+                        </div>
+                        <div style="flex: 1 1 100px; min-width: 120px; display: flex; align-items: flex-end;">
+                            <button type="submit" style="background: #01519A; color: #fff; border: none; border-radius: 6px; font-size: 16px; font-weight: 700; padding: 12px 28px; cursor: pointer; transition: background 0.2s;">Sorgula</button>
+                        </div>
+                    </form>
+                    <!-- Yükleniyor animasyonu -->
+                    <div id="loadingSpinner" style="display: none; margin-top: 20px; text-align: center;">
+                        <div style="display: inline-block; width: 40px; height: 40px; border: 3px solid #f3f3f3; border-top: 3px solid #01519A; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                        <p style="margin-top: 10px; color: #666;">Kargo bilgileri sorgulanıyor...</p>
+                    </div>
+                    <!-- Sonuç gösterme alanı -->
+                    <div id="resultArea" style="display: none; margin-top: 20px; padding: 15px; border-radius: 6px; background: #f8f9fa; border: 1px solid #e9ecef;">
+                        <h3 style="color: #01519A; margin-bottom: 10px; font-size: 1.1rem;">Kargo Durumu</h3>
+                        <p id="resultText" style="color: #444; line-height: 1.5;"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Banka Logoları -->
+        <section class="bank-logos" style="background: linear-gradient(to right, #f8f9fa, #ffffff, #f8f9fa); padding: 40px 0; margin-top: 40px; position: relative; overflow: hidden;">
+            <div class="container">
+                <h3 style="text-align: center; color: #01519A; margin-bottom: 30px; font-size: 1.4rem; font-weight: 600;">Ödeme Seçeneklerimiz</h3>
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <img src="https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/03248567e9ba65baa9f7451c2e9491d2" alt="Banka Görseli" style="height: 42px; transition: all 0.3s ease;">
+                </div>
+                <p style="text-align: center; margin-top: 25px; color: #666; font-size: 0.9rem;">Tüm ödemeleriniz 256-bit SSL sertifikası ile güvence altındadır</p>
+            </div>
+        </section>
+    </main>
+    <style>
+    @media (max-width: 900px) {
+        .cargo-track-row { flex-direction: column; gap: 18px !important; }
+        .cargo-track-box, .cargo-types-box { min-width: 0 !important; max-width: 100% !important; width: 100% !important; }
+    }
+    .back-home-btn {
+        position: fixed;
+        top: 24px;
+        right: 32px;
+        z-index: 1000;
+        background: #01519A;
+        color: #fff;
+        padding: 10px 22px;
+        border-radius: 6px;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 2px 8px rgba(1,81,154,0.08);
+        transition: background 0.2s, color 0.2s;
+        font-size: 15px;
+    }
+    .back-home-btn:hover {
+        background: #e31e24;
+        color: #fff;
+    }
+    @media (max-width: 600px) {
+        .back-home-btn {
+            top: 10px;
+            right: 10px;
+            padding: 8px 12px;
+            font-size: 13px;
+        }
+    }
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    .contact-button {
+        display: inline-block;
+        background: #01519A;
+        color: white;
+        text-decoration: none;
+        padding: 12px 24px;
+        border-radius: 6px;
+        margin-top: 20px;
+        font-weight: 600;
+        transition: background 0.2s;
+    }
+    .contact-button:hover {
+        background: #e31e24;
+    }
+    .bank-logos {
+        border-top: 1px solid #e0e0e0;
+        border-bottom: 1px solid #e0e0e0;
+        box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+    }
+    .bank-logos::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(to right, transparent, #e0e0e0, transparent);
+    }
+    .bank-logos::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(to right, transparent, #e0e0e0, transparent);
+    }
+    .bank-logos img {
+        transition: all 0.3s ease;
+        transform-origin: center;
+    }
+    .bank-logos img:hover {
+        transform: scale(1.15);
+    }
+    @media (max-width: 768px) {
+        .bank-logos {
+            padding: 30px 0;
+        }
+        .bank-logos img {
+            height: 32px !important;
+            margin: 0 8px !important;
+        }
+        .bank-logos h3 {
+            font-size: 1.2rem !important;
+            margin-bottom: 20px !important;
+        }
+    }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cargoForm = document.querySelector('.cargo-track-form');
+            const cargoNoInput = document.getElementById('cargoNo');
+            const cargoFirmSelect = document.getElementById('cargoFirm');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const resultArea = document.getElementById('resultArea');
+            const resultText = document.getElementById('resultText');
+
+            // Form gönderildiğinde
+            cargoForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const cargoNo = cargoNoInput.value.trim();
+                const cargoFirm = cargoFirmSelect.value;
+
+                if (!cargoNo || !cargoFirm) {
+                    alert('Lütfen kargo numarası ve kargo firmasını seçiniz.');
+                    return;
+                }
+
+                // Yükleniyor animasyonunu göster
+                loadingSpinner.style.display = 'block';
+                resultArea.style.display = 'none';
+
+                try {
+                    // Kargo firmasına göre API endpoint'i belirleme
+                    let apiUrl = '';
+                    let firmName = '';
+                    
+                    switch(cargoFirm) {
+                        case 'yurtici':
+                            apiUrl = `https://www.yurticikargo.com/tr/online-servisler/gonderi-sorgula?code=${cargoNo}`;
+                            firmName = 'Yurtiçi Kargo';
+                            break;
+                        case 'aras':
+                            apiUrl = `https://kargotakip.araskargo.com.tr/mainpage.aspx?code=${cargoNo}`;
+                            firmName = 'Aras Kargo';
+                            break;
+                        case 'mng':
+                            apiUrl = `https://www.mngkargo.com.tr/gonderi-takip/?gonderiNo=${cargoNo}`;
+                            firmName = 'MNG Kargo';
+                            break;
+                        case 'ptt':
+                            apiUrl = `https://gonderitakip.ptt.gov.tr/Track/Verify?q=${cargoNo}`;
+                            firmName = 'PTT Kargo';
+                            break;
+                    }
+
+                    if (apiUrl) {
+                        // Kullanıcıya bilgi ver
+                        resultArea.style.display = 'block';
+                        resultText.innerHTML = `${firmName} takip sayfasına yönlendiriliyorsunuz...<br><br>
+                            <a href="${apiUrl}" target="_blank" style="color: #01519A; text-decoration: underline;">Takip sayfasını açmak için tıklayın</a>`;
+                        
+                        // 2 saniye sonra yeni sekmede aç
+                        setTimeout(() => {
+                            window.open(apiUrl, '_blank');
+                        }, 2000);
+                    }
+                } catch (error) {
+                    resultArea.style.display = 'block';
+                    resultText.innerHTML = 'Kargo bilgileri alınırken bir hata oluştu. Lütfen daha sonra tekrar deneyiniz.';
+                } finally {
+                    loadingSpinner.style.display = 'none';
+                }
+            });
+
+            // Input alanlarına animasyon ekleme
+            const inputs = document.querySelectorAll('input, select');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.style.borderColor = '#01519A';
+                    this.style.boxShadow = '0 0 0 2px rgba(1,81,154,0.1)';
+                });
+
+                input.addEventListener('blur', function() {
+                    this.style.borderColor = '#ddd';
+                    this.style.boxShadow = 'none';
+                });
+            });
+
+            // Sayfa yüklendiğinde input alanına otomatik odaklanma
+            cargoNoInput.focus();
+        });
+    </script>
+
+    <!-- FOOTER -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-logo"><img src="images/logo.png" alt="EMR GRUP Logo"></div>
+                <div class="footer-columns">
+                    <div class="footer-col">
+                        <h4>ÜYELİK</h4>
+                        <ul>
+                            <li><a href="uye-ol.html">Yeni Üyelik</a></li>
+                            <li><a href="giris.html">Üye Girişi</a></li>
+                            <li><a href="hesabim.html">Hesabım</a></li>
+                            <li><a href="sifremi-unuttum.html">Şifremi Unuttum</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>BİLGİ</h4>
+                        <ul>
+                            <li><a href="yuk-endeksi.html">Yük Endeksi & Hız Sembolü</a></li>
+                            <li><a href="iptal-ve-iade.html">İade Şartları</a></li>
+                            <li><a href="garanti.html">Garanti Koşulları</a></li>
+                            <li><a href="kvkk.html">KVKK Aydınlatma Metni</a></li>
+                            <li><a href="gizlilik.html">Gizlilik ve Güvenlik</a></li>
+                            <li><a href="sss.html">S.S.S</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>ALIŞVERİŞ</h4>
+                        <ul>
+                            <li><a href="nasil-calisir.html">Nasıl Çalışır</a></li>
+                            <li><a href="sepet.html">Alışveriş Sepetim</a></li>
+                            <li><a href="kargo-takip.html">Kargom Nerede?</a></li>
+                            <li><a href="banka-kampanyalari.html">Banka Kampanyaları</a></li>
+                            <li><a href="iade-formu.html">İade Formu</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>İLETİŞİM</h4>
+                        <p>EMR GRUP A.Ş<br>Yeni Mah. 54200 Erenler, SAKARYA<br>0 850 285 63 85<br>satis@emrgrup.com</p>
+                    </div>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>E-POSTA LİSTESİ</h4>
+                    <form><input type="email" placeholder="E-posta adresiniz..."><button>KAYDOL</button></form>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom" style="text-align: center; padding: 20px 0;">
+                <p>Copyright © 2015 Her Hakkı Saklıdır. Tüm Bilgiler 256 Bit SSL sertifikası ile korunmaktadır.</p>
+                <p>Lastikler 2024 ve 2025 yılı üretim olmak üzere fabrika stok durumuna göre sevk edilmektedir.</p>
+                <p>Ücretsiz montaj, EMR GRUP için sunulan bir kampanyadır!</p>
+                <div style="margin-top: 20px;">
+                    <a href="iletisim.html" style="display: inline-block; background: #01519A; color: white; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-weight: 600; transition: background 0.2s;">İletişime Geç</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 
